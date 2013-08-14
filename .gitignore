@@ -22,4 +22,4 @@ composer.lock
 # Packages
 app/_ide_helpers.php
 
-/html/.htacess
+html/.htacess
