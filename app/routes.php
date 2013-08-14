@@ -57,7 +57,7 @@ Route::get('privacy', function(){
 });
 
 Route::get('browser', function(){
-	return Browser/Browser::isMobile();
+	return Browser::isMobile();
 });
 
 /**
