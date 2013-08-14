@@ -56,6 +56,10 @@ Route::get('privacy', function(){
 	return View::make('privacy');
 });
 
+Route::get('browser', function(){
+	return Browser/Browser::isMobile();
+});
+
 /**
  *
  *	TELEPHONY ROUTES - These routes handle telephony related stuff
