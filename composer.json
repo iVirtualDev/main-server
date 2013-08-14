@@ -4,8 +4,7 @@
 	"keywords": ["framework", "laravel"],
 	"require": {
 		"laravel/framework": "4.0.*",
-		"opentok/opentok": "*",
-		"ikimea/browser": "*"
+		"opentok/opentok": "*"
 	},
 	"autoload": {
 		"classmap": [
