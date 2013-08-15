@@ -57,7 +57,7 @@ Route::get('privacy', function(){
 });
 
 Route::get('browser', function(){
-	return Carbon::now()->toRFC2822String();
+	var_dump(Browser);
 });
 
 /**
