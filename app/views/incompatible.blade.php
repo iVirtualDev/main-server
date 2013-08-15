@@ -30,7 +30,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="large-10 large-centered columns">
+			<div class="large-12 large-centered columns">
 				<div class="row">
 					<div class="large-12 large-centered columns">
 						<div id="incompatible_browser" class="panel error">
