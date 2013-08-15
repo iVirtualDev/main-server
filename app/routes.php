@@ -53,17 +53,18 @@ Route::get('/{sid?}', function($sid = null)
 		}
 	}
 
-	echo $compatible;
+	if($compatible){
+		$params = array();
+		if($sid != null || Session::has('sid')){
+			$params['skipintro'] = true;
+		}else{
+			$params['skipintro'] = false;
+		}
 
-	$params = array();
-	if($sid != null || Session::has('sid')){
-		$params['skipintro'] = true;
+		return View::make('main', $params);
 	}else{
-		$params['skipintro'] = false;
+		return View::make('incompatible');
 	}
-
-	return View::make('main', $params);
-
 })->where('sid', '^[a-zA-Z0-9]{8}$');
 
 Route::get('/static/js/lang.js', function(){
