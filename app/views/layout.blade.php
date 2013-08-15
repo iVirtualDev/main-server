@@ -41,7 +41,11 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
 			</div>
 		</div>
 		<div class="row">
-			@yield('main')
+            <div class="large-8 large-centered columns">
+                <div id="page_content">
+                    @yield('main')
+                </div>
+            </div>
 		</div>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/sugar/1.3.9/sugar.min.js"></script>

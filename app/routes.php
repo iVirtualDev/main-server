@@ -31,7 +31,9 @@ function jsend($status, $data = array(), $message = "Unknown Error", $code = 301
 }
 
 View::composer('layout', function($view){
-	$view->with('is_mobile', false);
+	$browser = new Browser();
+
+	$view->with('is_mobile', $browser->isMobile());
 });
 
 Route::get('/{sid?}', function($sid = null)
@@ -58,22 +60,16 @@ Route::get('/{sid?}', function($sid = null)
 	}
 
 	$params = array();
+	$params["compatible"] = $compatible;
+	$params["page_id"] = "main";
+	$params["skipintro"] = false;
 
-	if($compatible){
-		$params["page_id"] = "main";
-
-		if($sid != null || Session::has('sid')){
-			$params['skipintro'] = true;
-		}else{
-			$params['skipintro'] = false;
-		}
-
-		return View::make('main', $params);
-	}else{
-		$params["page_id"] = "incompatible";
-		$params['is_mobile'] = $browser->isMobile();
-		return View::make('incompatible', $params);
+	if($sid != null || Session::has('sid')){
+		$params["skipintro"] = true;
 	}
+
+	return View::make('main', $params);
+
 })->where('sid', '^[a-zA-Z0-9]{8}$');
 
 Route::get('/static/js/lang.js', function(){
