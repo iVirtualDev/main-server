@@ -30,6 +30,10 @@ function jsend($status, $data = array(), $message = "Unknown Error", $code = 301
 	}
 }
 
+View::composer('layout', function($view){
+	$view->with('is_mobile', false);
+});
+
 Route::get('/{sid?}', function($sid = null)
 {
 	$browser = new Browser();
