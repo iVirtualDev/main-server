@@ -1,7 +1,7 @@
 define(['Ractive', 'rv!/static/templates/view.html', 'url', 'src/MessageClass', 'sizzle'], function(Ractive, template, url, Message, Sizzle) {
 	var ViewModule = Ractive.extend({
 		module_id: "ViewModule",
-		el: document.getElementById('main_hold'),
+		el: document.getElementById('main_content'),
 		template: template,
 		data: {
 			sid: url("path").replace(/\//gi, ""),
