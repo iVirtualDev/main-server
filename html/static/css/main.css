@@ -59,16 +59,19 @@ ul.button-group li:only-child a {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-body .cf:before,
-body .cf:after {
+.cf:before,
+.cf:after {
   content: "";
   display: table;
 }
-body .cf:after {
+.cf:after {
   clear: both;
 }
-body .cf {
+.cf {
   zoom: 1;
+}
+body div#page_content {
+  margin-top: 25px;
 }
 body ul#notice-base {
   z-index: -2147483647;
