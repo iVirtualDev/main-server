@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('main')
-	<div class="large-7 large-centered columns">
+	<div class="large-8 large-centered columns">
 		<div id="app_hold">
 			<div id="main_hold" class="row">
 				@if( ! $skipintro)
