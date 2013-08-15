@@ -60,7 +60,7 @@ Route::get('/{sid?}', function($sid = null)
 	$params = array();
 
 	if($compatible){
-		$params["page_id"] = "main"
+		$params["page_id"] = "main";
 
 		if($sid != null || Session::has('sid')){
 			$params['skipintro'] = true;
