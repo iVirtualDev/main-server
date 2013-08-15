@@ -275,8 +275,13 @@ body div#ad {
   margin-left: auto;
   margin-right: auto;
   display: table;
-  width: 728px;
+  width: 970px;
   height: 90px;
+}
+body div#ad.mobile {
+  position: fixed;
+  width: 100%;
+  height: auto;
 }
 body div#incompatible_browser div.panel_body p {
   font-size: 0.9em;
