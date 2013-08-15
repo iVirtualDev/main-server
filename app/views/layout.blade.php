@@ -49,7 +49,7 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
         
         @if($is_mobile)
             <div id="ad" class="mobile">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <!-- ysp_mobile -->
                 <ins class="adsbygoogle"
                      style="display:inline-block;width:320px;height:50px"
