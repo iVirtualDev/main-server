@@ -30,15 +30,15 @@
 					</div>
 				</div>
 			</div>
-			<div class="large-8 large-centered columns">
+			<div class="large-10 large-centered columns">
 				<div class="row">
 					<div class="large-12 large-centered columns">
-						<div id="incompatible_browser" class="panel">
+						<div id="incompatible_browser" class="panel error">
 							<header>
 								<h3>Please upgrade your browser</h3>
 							</header>
 							<div class="panel_body">
-								
+								<p>Your browser is not equipped with the necessary tools to handle Your Second Phone. Please upgrade to, or install the latest version of <a href="https://www.google.com/chrome">Chrome</a> or <a href="http://www.firefox.com/">Firefox</a>.</p>
 							</div>
 						</div>
 					</div>
