@@ -11,6 +11,8 @@
 |
 */
 
+use Ikimea\Browser\Browser;
+
 function jsend($status, $data = array(), $message = "Unknown Error", $code = 301){
 	$out = array();
 	if(in_array($status, array("fail", "error", "success"))){
@@ -54,13 +56,6 @@ Route::get('about', function(){
 });
 Route::get('privacy', function(){
 	return View::make('privacy');
-});
-
-use Ikimea\Browser\Browser;
-
-Route::get('browser', function(){
-	$browser = new Browser();
-	var_dump($browser);
 });
 
 /**
