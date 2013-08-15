@@ -17,6 +17,7 @@
 			"app/tests/TestCase.php"
 		]
 	},
+	"license": "Apache-2.0",
 	"scripts": {
 		"post-install-cmd": [
 			"php artisan optimize"
