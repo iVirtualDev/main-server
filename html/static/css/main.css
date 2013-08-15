@@ -278,6 +278,9 @@ body div#ad {
 body div#ad.mobile {
   height: 50px;
 }
+body div#incompatible_browser {
+  margin-bottom: 100px;
+}
 body div#incompatible_browser div.panel_body p {
   font-size: 0.9em;
 }
