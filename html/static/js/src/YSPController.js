@@ -9,13 +9,19 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 				socket_error: 4009,
 				socket_connect_failed: 4010
 			},
-			timestamp_fmt:"{HH}:{mm}:{ss}",
+			timestamp_fmt: "{HH}:{mm}:{ss}",
 			constructor: function() {
 				base = this;
 				this.init();
 
-				if(jQuery('#ad').height() == 0){
-					new notice("Please don't hide the ads, it's how Your Second Phone is kept alive.", {type:'error',onclick:function(){ return false; }});
+				if (jQuery('#ad').height() == 0) {
+					new notice("Please don't hide the ads, it's how Your Second Phone is kept alive.", {
+						type: 'error',
+						onclick: function() {
+							return false;
+						},
+						timeout: false
+					});
 				}
 
 				jQuery(document).ajaxError(function() {
