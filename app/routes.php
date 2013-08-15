@@ -57,7 +57,7 @@ Route::get('privacy', function(){
 });
 
 Route::get('browser', function(){
-	var_dump(get_browser());
+	include '../vendor/gavroche/browser/src/Browser/Autoloader.php';
 });
 
 /**
