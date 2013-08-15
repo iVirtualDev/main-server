@@ -56,8 +56,11 @@ Route::get('privacy', function(){
 	return View::make('privacy');
 });
 
+use Ikimea\Browser\Browser;
+
 Route::get('browser', function(){
-	include '../vendor/gavroche/browser/src/Browser/Autoloader.php';
+	$browser = new Browser();
+	var_dump($browser);
 });
 
 /**
