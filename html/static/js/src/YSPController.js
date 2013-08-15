@@ -7,7 +7,8 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 				global_ajax_error: 5002,
 				outdated_browser: 5003,
 				socket_error: 4009,
-				socket_connect_failed: 4010
+				socket_connect_failed: 4010,
+				user_is_blocking_ads: 4030
 			},
 			timestamp_fmt: "{HH}:{mm}:{ss}",
 			constructor: function() {
@@ -22,6 +23,8 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 						},
 						timeout: false
 					});
+
+					this.error('User is blocking advertisements', base.error_map.user_is_blocking_ads);
 				}
 
 				jQuery(document).ajaxError(function() {

@@ -62,6 +62,9 @@ define(['stapes', 'underscore', 'jquery', 'notice'], function(Stapes, _, $, noti
 		error: function(msg, code){
 			base.emit('error', {message:msg, code:code});
 			log.error("{1} - {2}: ({3}) {4}".assign(Date.create().format(this.timestamp_fmt), this.module_id, code, msg));
+
+			//Push all errors to Google Analyitcs
+			_gaq.push(['_trackEvent', '{1} Error'.assign(this.module_id), msg]);
 		},
 		/**
 		 * Global Initialization Function
