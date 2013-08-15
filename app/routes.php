@@ -53,7 +53,7 @@ Route::get('/{sid?}', function($sid = null)
 		}
 	}
 
-	if($compatible){
+	if( ! $compatible){
 		$params = array();
 		if($sid != null || Session::has('sid')){
 			$params['skipintro'] = true;
