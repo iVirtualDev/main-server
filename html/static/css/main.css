@@ -270,7 +270,7 @@ body div#main_hold div#chat_input_hold input#chat_input {
   border-bottom-left-radius: 5px;
 }
 body div#ad {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   margin-left: auto;
   margin-right: auto;
