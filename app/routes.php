@@ -57,7 +57,7 @@ Route::get('privacy', function(){
 });
 
 Route::get('browser', function(){
-	var_dump(Browser\Browser);
+	var_dump(get_browser());
 });
 
 /**
