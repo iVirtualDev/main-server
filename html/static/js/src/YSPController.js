@@ -1,5 +1,5 @@
-define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/FatalErrors', 'lang', 'jquery', 'async', 'underscore'],
-	function(BaseModule, ChatModule, ViewModule, TelephonyModule, FatalErrors, lang, jQuery, async, _) {
+define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/FatalErrors', 'lang', 'jquery', 'async', 'underscore', 'notice'],
+	function(BaseModule, ChatModule, ViewModule, TelephonyModule, FatalErrors, lang, jQuery, async, _, notice) {
 		var YSPController = BaseModule.subclass({
 			module_id: 'YSPController',
 			error_map: {
@@ -13,6 +13,10 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 			constructor: function() {
 				base = this;
 				this.init();
+
+				if(jQuery('#ad').height() == 0){
+					new notice("Please don't hide the ads, it's how Your Second Phone is kept alive.", {type:'error',onclick:function(){ return false; }});
+				}
 
 				jQuery(document).ajaxError(function() {
 					base.error(base.lang.global_ajax_error, base.error_map.global_ajax_error);
