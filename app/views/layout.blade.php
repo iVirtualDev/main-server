@@ -32,7 +32,7 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
         <link rel="stylesheet" href="/static/css/main.css">
 		@yield('css')
     </head>
-    <body>
+    <body id="{{ $page_id }}">
 		<div class="row">
 			<div class="large-8 large-centered columns">
 				<header id="global_header">
