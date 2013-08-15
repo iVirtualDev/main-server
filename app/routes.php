@@ -39,13 +39,21 @@ Route::get('/{sid?}', function($sid = null)
 	$compatible = false;
 
 	//Compatible browser?
-	if( ($type == Browser::BROWSER_FIREFOX || $type == Browser::BROWSER_CHROME) ) {
-		if($type == Browser::BROWSER_FIREFOX) {
-			if($version)
-		}else if($type == Browser::BROWSER_CHROME) {
+	if( ($type == Browser::BROWSER_FIREFOX || $type == Browser::BROWSER_CHROME) && ! $browser->isMobile() ) {
+		$version_int = (int) substr($version, 0, 2);
 
+		if($type == Browser::BROWSER_FIREFOX) {
+			if($version_int >= 22){
+				$compatible = true;
+			}
+		}else if($type == Browser::BROWSER_CHROME) {
+			if($version_int >= 26){
+				$compatible = true;
+			}
 		}
 	}
+
+	echo $compatible;
 
 	$params = array();
 	if($sid != null || Session::has('sid')){
