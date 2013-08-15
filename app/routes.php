@@ -60,6 +60,8 @@ Route::get('/{sid?}', function($sid = null)
 	$params = array();
 
 	if($compatible){
+		$params["page_id"] = "main"
+
 		if($sid != null || Session::has('sid')){
 			$params['skipintro'] = true;
 		}else{
@@ -68,6 +70,7 @@ Route::get('/{sid?}', function($sid = null)
 
 		return View::make('main', $params);
 	}else{
+		$params["page_id"] = "incompatible";
 		$params['is_mobile'] = $browser->isMobile();
 		return View::make('incompatible', $params);
 	}
@@ -82,16 +85,10 @@ Route::get('/static/js/lang.js', function(){
 });
 
 Route::get('about', function(){
-	return View::make('about');
+	return View::make('about', array("page_id" => "about"));
 });
 Route::get('privacy', function(){
-	return View::make('privacy');
-});
-
-Route::get('browser', function(){
-	$browser = new Browser();
-
-	var_dump($browser);
+	return View::make('privacy', array("page_id" => "privacy"));
 });
 
 /**
