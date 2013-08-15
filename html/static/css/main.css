@@ -278,3 +278,6 @@ body div#ad {
   width: 728px;
   height: 90px;
 }
+body div#incompatible_browser div.panel_body p {
+  font-size: 0.9em;
+}
