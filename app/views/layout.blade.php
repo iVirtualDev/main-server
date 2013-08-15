@@ -47,17 +47,29 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
         <script src="//cdnjs.cloudflare.com/ajax/libs/sugar/1.3.9/sugar.min.js"></script>
         @yield('js')
         
-        <div id="ad" align="center">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- video_chat_ysp -->
+        @if($is_mobile)
+            <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- ysp_mobile -->
             <ins class="adsbygoogle"
-                 style="display:inline-block;width:970px;height:90px"
+                 style="display:inline-block;width:320px;height:50px"
                  data-ad-client="ca-pub-6604919870949736"
-                 data-ad-slot="4713178837"></ins>
+                 data-ad-slot="2331462035"></ins>
             <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        @else
+            <div id="ad" align="center">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- video_chat_ysp -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:970px;height:90px"
+                     data-ad-client="ca-pub-6604919870949736"
+                     data-ad-slot="4713178837"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        @endif
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];

@@ -53,8 +53,9 @@ Route::get('/{sid?}', function($sid = null)
 		}
 	}
 
+	$params = array();
+
 	if($compatible){
-		$params = array();
 		if($sid != null || Session::has('sid')){
 			$params['skipintro'] = true;
 		}else{
@@ -63,7 +64,8 @@ Route::get('/{sid?}', function($sid = null)
 
 		return View::make('main', $params);
 	}else{
-		return View::make('incompatible');
+		$params['is_mobile'] = $browser->isMobile();
+		return View::make('incompatible', $params);
 	}
 })->where('sid', '^[a-zA-Z0-9]{8}$');
 
