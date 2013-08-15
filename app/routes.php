@@ -32,6 +32,21 @@ function jsend($status, $data = array(), $message = "Unknown Error", $code = 301
 
 Route::get('/{sid?}', function($sid = null)
 {
+	$browser = new Browser();
+	$type = $browser->getBrowser();
+	$version = $browser->getVersion();
+
+	$compatible = false;
+
+	//Compatible browser?
+	if( ($type == Browser::BROWSER_FIREFOX || $type == Browser::BROWSER_CHROME) ) {
+		if($type == Browser::BROWSER_FIREFOX) {
+			if($version)
+		}else if($type == Browser::BROWSER_CHROME) {
+
+		}
+	}
+
 	$params = array();
 	if($sid != null || Session::has('sid')){
 		$params['skipintro'] = true;
@@ -56,6 +71,12 @@ Route::get('about', function(){
 });
 Route::get('privacy', function(){
 	return View::make('privacy');
+});
+
+Route::get('browser', function(){
+	$browser = new Browser();
+
+	var_dump($browser);
 });
 
 /**
