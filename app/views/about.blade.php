@@ -104,7 +104,7 @@
 						If you find and issue but don't know much code, thats okay, just open an issue on GitHub and it will be addressed.
 					</p>
 					<p>
-						<a href="https://github.com/yoursecondphone">Your Second Phone's GitHub</a>
+						<a href="https://github.com/yoursecondphone" target="_blank">Your Second Phone's GitHub</a>
 					</p>
 				</div>
 			</div>
