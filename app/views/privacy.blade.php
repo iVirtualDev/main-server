@@ -21,7 +21,7 @@
 
 					<h3>What <i>isn't</i> Collected?</h3>
 
-					<p><b>Chat: </b> Messages that you send in your sessions is never logged, in order to assure this we implement our own chat server based on <i>Node.js</i> and <i>Socket.io</i>. For added security, all messages are passed over a secure 256-bit encrypted connection. The code that runs the chat-server is freely available for you to scrutinize (<a href="http://git.io/SUmZug" target="_blank">Chat Server Code</a>).</p>
+					<p><b>Chat: </b> Messages that you send in your sessions is never logged, stored, saved, inspected, etc., in order to assure this we implement our own chat server based on <i>Node.js</i> and <i>Socket.io</i>. For added security, all messages are passed over a secure 256-bit encrypted connection. The code that runs the chat-server is freely available for you to scrutinize (<a href="http://git.io/SUmZug" target="_blank">Chat Server Code</a>).</p>
 					
 					<p><b>Personal Information: </b>As Your Second Phone does not ask for any information, no personal information is ever collected or extracted from you (the user). Your Second Phone has always been like this, and will forever remain as such.</p>
 
