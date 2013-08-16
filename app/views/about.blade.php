@@ -5,7 +5,7 @@
 		<div class="large-6 columns">
 			<div class="panel" id="history">
 				<header>
-					<h3>History</h3>
+					<h3><i class="icon-road"></i>&nbsp;History</h3>
 				</header>
 				<div class="panel_body">
 					<p>
@@ -20,7 +20,7 @@
 		<div class="large-6 columns">
 			<div class="panel" id="team">
 				<header>
-					<h3>Meet the Team</h3>
+					<h3><i class="icon-male"></i>&nbsp;Meet the Team</h3>
 				</header>
 				<div class="panel_body">
 					<p>
@@ -34,7 +34,7 @@
 		<div class="large-12 columns">
 			<div class="panel" id="advantage">
 				<header>
-					<h3>Advantages</h3>
+					<h3><i class="icon-thumbs-up"></i>&nbsp;Advantages</h3>
 				</header>
 				<div class="panel_body">
 					<p>Asking yourself why <b>Your Second Phone</b> is better than other video chat services? Let the table below tell you!</p>
