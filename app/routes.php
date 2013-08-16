@@ -113,7 +113,7 @@ Route::get('/telephony/create_session', function(){
 		$sid = str_random(8);
 	}
 
-	Cache::add($sid, $session_id, 60);
+	Cache::add($sid, $session_id, 1440);
 	Session::put('sid', $sid);
 
 	return Response::json(jsend("success", array("sid" => $sid, "session_id" => $session_id)));
