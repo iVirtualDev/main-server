@@ -51,9 +51,9 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
             <div class="large-9 large-centered columns">
                 <footer id="global_footer">
                     <ul class="inline-list">
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/privacy">Privacy Policy</a></li>
-                        <li><a href="https://github.com/yoursecondphone">GitHub</a></li>
+                        <li><a href="/about"><i class="icon-info-sign"></i>&nbsp;About</a></li>
+                        <li><a href="/privacy"><i class="icon-eye-open"></i>&nbsp;Privacy Policy</a></li>
+                        <li><a href="https://github.com/yoursecondphone"><i class="icon-github-alt"></i>&nbsp;GitHub</a></li>
                     </ul>
                 </footer>
             </div>

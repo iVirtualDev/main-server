@@ -213,6 +213,7 @@ body footer#global_footer {
 }
 body footer#global_footer ul.inline-list {
   margin: 0 auto;
+  display: table;
 }
 body div.panel {
   background: none;
