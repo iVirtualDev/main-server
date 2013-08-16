@@ -36,7 +36,7 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
 		<div class="row">
 			<div class="large-9 large-centered columns">
 				<header id="global_header">
-					<h2>Your Second Phone</h2>
+					<a href="/"><h2>Your Second Phone</h2></a>
 				</header>
 			</div>
 		</div>
