@@ -74,12 +74,14 @@ body div#page_content {
   margin-top: 25px;
 }
 body ul#notice-base {
-  z-index: -2147483647;
   position: fixed;
   top: 0;
   width: 100%;
   padding: 20px;
   list-style: none;
+}
+body ul#notice-base:empty {
+  display: none;
 }
 body ul#notice-base li.notice-item {
   line-height: 1em;
