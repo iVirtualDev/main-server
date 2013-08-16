@@ -52,6 +52,7 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 					function(callback) {
 						base.viewModule = new ViewModule(callback);
 						base.viewModule.on('input_activity', base.viewModule.input_activity);
+						base.viewModule.on('session_link_hover', base.viewModule.session_link_hover);
 					},
 					function(callback) {
 						base.telephonyModule = new TelephonyModule(callback);

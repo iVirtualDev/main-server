@@ -46,6 +46,9 @@ define(['Ractive', 'rv!/static/templates/view.html', 'url', 'src/MessageClass', 
 					event.node.value = "";
 				}
 			}
+		},
+		session_link_hover: function(event){
+			console.log(event);
 		}
 	});
 
