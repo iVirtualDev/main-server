@@ -2,7 +2,7 @@
 
 @section('main')
 	<div class="row">
-		<div class="large-12 columns">
+		<div class="large-6 columns">
 			<div class="panel" id="history">
 				<header>
 					<h3>History</h3>
@@ -16,6 +16,8 @@
 					</p>
 				</div>
 			</div>
+		</div>
+		<div class="large-6 columns">
 			<div class="panel" id="team">
 				<header>
 					<h3>Meet the Team</h3>
@@ -26,6 +28,10 @@
 					</p>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns">
 			<div class="panel" id="advantage">
 				<header>
 					<h3>Advantages</h3>
