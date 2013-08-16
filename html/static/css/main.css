@@ -225,6 +225,9 @@ body footer#global_footer div#twitter {
   text-align: center;
   padding-top: 10px;
 }
+body footer#global_footer div#copyright {
+  text-align: center;
+}
 body div.panel {
   background: none;
   border: none;
