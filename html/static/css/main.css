@@ -73,6 +73,54 @@ ul.button-group li:only-child a {
 body div#page_content {
   margin-top: 25px;
 }
+body#main ul#chat {
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  height: 175px;
+  padding: 10px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  list-style: none;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+body#main ul#chat li div.message {
+  display: table;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 7px;
+  margin-bottom: 10px;
+}
+body#main ul#chat li div.message.sent {
+  margin-right: auto;
+  margin-left: 0px;
+  background-color: #2ecc71;
+  color: white;
+}
+body#main ul#chat li div.message.received {
+  margin-left: auto;
+  margin-right: 0px;
+  background-color: #ecf0f1;
+  color: #696969;
+}
+body#main div#chat_input_hold {
+  margin: 0px;
+  padding: 0px;
+}
+body#main div#chat_input_hold input#chat_input {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
 body ul#notice-base {
   position: fixed;
   top: 0;
@@ -214,65 +262,21 @@ body div.panel div.panel_body p {
 body div.panel div.panel_body *:last-child {
   margin-bottom: 0px;
 }
-body div#main_hold {
-  margin-top: 10px;
-}
-body div#main_hold button#bootstrap {
+body button,
+body .button {
   background-color: #2ecc71;
   border: none;
   box-shadow: none;
+  outline: none;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-}
-body div#main_hold ul#chat {
-  background-color: white;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  height: 175px;
-  padding: 10px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  list-style: none;
-  overflow: scroll;
-  overflow-x: hidden;
-}
-body div#main_hold ul#chat li div.message {
-  display: table;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  padding: 7px;
-  margin-bottom: 10px;
-}
-body div#main_hold ul#chat li div.message.sent {
-  margin-right: auto;
-  margin-left: 0px;
-  background-color: #2ecc71;
   color: white;
 }
-body div#main_hold ul#chat li div.message.received {
-  margin-left: auto;
-  margin-right: 0px;
-  background-color: #ecf0f1;
-  color: #696969;
-}
-body div#main_hold div#chat_input_hold {
-  margin: 0px;
-  padding: 0px;
-}
-body div#main_hold div#chat_input_hold input#chat_input {
-  border: none;
-  outline: none;
-  box-shadow: none;
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+body button:active,
+body .button:active {
+  background-color: #27ae60;
 }
 body div#ad {
   position: fixed;
