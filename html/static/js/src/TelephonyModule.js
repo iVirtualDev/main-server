@@ -124,7 +124,10 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 						sub.id = "stream_{1}".assign(streams[i].connection.connectionId);
 						sub_hold.appendChild(sub);
 
-						mod_root.session.subscribe(streams[i], sub.id);
+						mod_root.session.subscribe(streams[i], sub.id, {
+							width:320,
+							height:200
+						});
 						return;
 					}
 				}
