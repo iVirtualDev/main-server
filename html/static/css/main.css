@@ -121,6 +121,12 @@ body#main div#chat_input_hold input#chat_input {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+body#main div#incompatible_browser {
+  margin-bottom: 100px;
+}
+body#main div#incompatible_browser div.panel_body p {
+  font-size: 0.9em;
+}
 body ul#notice-base {
   position: fixed;
   top: 0;
@@ -286,10 +292,4 @@ body div#ad {
   position: fixed;
   bottom: 0;
   width: 100%;
-}
-body div#incompatible_browser {
-  margin-bottom: 100px;
-}
-body div#incompatible_browser div.panel_body p {
-  font-size: 0.9em;
 }
