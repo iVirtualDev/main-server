@@ -73,6 +73,9 @@ ul.button-group li:only-child a {
 body div#page_content {
   margin-top: 25px;
 }
+body#main div#subscription_hold > div[id^="stream"] {
+  float: right;
+}
 body#main ul#chat {
   background-color: white;
   margin-top: 10px;
