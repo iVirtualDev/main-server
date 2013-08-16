@@ -45,7 +45,7 @@ function jsend($status, $data = array(), $message = "Unknown Error", $code = 301
 View::composer('layout', function($view){
 	$browser = new Browser();
 
-	$view->with('is_mobile', $browser->isMobile())->with('show_ad', true);
+	$view->with('is_mobile', $browser->isMobile());
 });
 
 Route::get('/{sid?}', function($sid = null)
@@ -75,6 +75,7 @@ Route::get('/{sid?}', function($sid = null)
 	$params["compatible"] = $compatible;
 	$params["page_id"] = "main";
 	$params["skipintro"] = false;
+	$params["show_ad"] = true;
 
 	if($sid != null || Session::has('sid')){
 		$params["skipintro"] = true;
