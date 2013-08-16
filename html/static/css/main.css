@@ -208,6 +208,12 @@ body header#global_header h2 {
   color: white;
   margin: 0px;
 }
+body footer#global_footer {
+  margin-bottom: 100px;
+}
+body footer#global_footer ul.inline-list {
+  margin: 0 auto;
+}
 body div.panel {
   background: none;
   border: none;
