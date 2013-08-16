@@ -47,8 +47,23 @@ define(['Ractive', 'rv!/static/templates/view.html', 'url', 'src/MessageClass', 
 				}
 			}
 		},
-		session_link_hover: function(event){
-			console.log(event);
+		session_link_hover: function(event) {
+			var el = event.node;
+			el.focus();
+			win = win || window;
+			var doc = win.document,
+				sel, range;
+			if (win.getSelection && doc.createRange) {
+				sel = win.getSelection();
+				range = doc.createRange();
+				range.selectNodeContents(el);
+				sel.removeAllRanges();
+				sel.addRange(range);
+			} else if (doc.body.createTextRange) {
+				range = doc.body.createTextRange();
+				range.moveToElementText(el);
+				range.select();
+			}
 		}
 	});
 
