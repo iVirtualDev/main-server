@@ -22,6 +22,8 @@
 					<h3 id="info_not_collected">What <i>isn't</i> Collected?</h3>
 
 					<p><b>Chat: </b> Messages that you send in your sessions is never logged, stored, saved, inspected, etc., in order to assure this we implement our own chat server based on <i>Node.js</i> and <i>Socket.io</i>. For added security, all messages are passed over a secure 256-bit encrypted connection. The code that runs the chat-server is freely available for you to scrutinize (<a href="http://git.io/SUmZug" target="_blank">Chat Server Code</a>).</p>
+
+					<p><b>Content of Video Calls: </b>Your Second Phone does not monitor your video chats or record or store any portion of them. Video calls are actually networked so that the data flows directly in between the two endpoints and skipping any middle man. Video chats are fully Peer-to-Peer.</p>
 					
 					<p><b>Personal Information: </b>As Your Second Phone does not ask for any information, no personal information is ever collected or extracted from you (the user). Your Second Phone has always been like this, and will forever remain as such.</p>
 
@@ -44,7 +46,7 @@
 					<h3>Personal Note</h3>
 					<p>I (Nick Comer) use a lot of services on the internet and I know what it means to be careful with data. I am treating the information that flows through Your Second Phone the same way I would want my information to be treated; which is with complete discretion.</p>
 
-					<small><i>Last Edited: August 16, 2013 14:20:20 EST</i></small>
+					<small><i>Last Edited: August 16, 2013 16:28:20 EST</i></small>
 				</div>
 			</div>
 		</div>
