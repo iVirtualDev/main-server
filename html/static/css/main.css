@@ -81,7 +81,7 @@ ul.button-group li:only-child a {
 body div#page_content {
   margin-top: 25px;
 }
-body#main div#main_panel header div#session_link {
+body#main div#main_panel header div#session_link_hold {
   background-color: #27ae60;
   padding: 6px;
   font-size: 0.8em;
@@ -93,6 +93,9 @@ body#main div#main_panel header div#session_link {
   border-top-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
+}
+body#main div#main_panel header div#session_link_hold div#session_link {
+  display: inline-table;
 }
 body#main div#main_panel div#subscription_hold > div[id^="stream"] {
   float: right;
