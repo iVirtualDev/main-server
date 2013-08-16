@@ -82,6 +82,7 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 					mod_root.session.connect(mod_root.apiKey, mod_root.token);
 
 					base.viewModule.set('sid', mod_root.sid);
+					base.viewModule.set('session_link', 'http://ysp.im/{1}'.assign(mod_root.sid));
 
 					callback(null);
 				});

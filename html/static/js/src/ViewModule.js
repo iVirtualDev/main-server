@@ -5,6 +5,7 @@ define(['Ractive', 'rv!/static/templates/view.html', 'url', 'src/MessageClass', 
 		template: template,
 		data: {
 			sid: url("path").replace(/\//gi, ""),
+			session_link: 'Loading...',
 			fatalError: false,
 			fatal_error_message: 'Unknown Error!',
 			messages: [],
@@ -35,9 +36,9 @@ define(['Ractive', 'rv!/static/templates/view.html', 'url', 'src/MessageClass', 
 				this.dbug('Enter key pressed; sending message...');
 				var msg = event.node.value;
 
-				if(msg === ""){
+				if (msg === "") {
 					this.dbug("Empty input...");
-				}else{
+				} else {
 					//Send a message
 					base.chatModule.send(msg);
 
