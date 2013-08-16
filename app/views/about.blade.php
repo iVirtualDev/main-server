@@ -71,6 +71,13 @@
 								<td>No</td>
 							</tr>
 							<tr>
+								<td class="service_label">FaceTime</td>
+								<td>Yes</td>
+								<td>Yes</td>
+								<td>No</td>
+								<td>Unknown</td>
+							</tr>
+							<tr>
 								<td class="service_label">Your Second Phone</td>
 								<td>No</td>
 								<td>No</td>
