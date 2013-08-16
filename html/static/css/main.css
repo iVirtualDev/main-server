@@ -347,6 +347,12 @@ body button:active,
 body .button:active {
   background-color: #27ae60;
 }
+body ol,
+body ul {
+  color: #696969;
+  list-style-position: outside;
+  margin-left: 20px;
+}
 body div#ad {
   position: fixed;
   bottom: 0;

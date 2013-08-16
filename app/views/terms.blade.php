@@ -8,10 +8,6 @@
 					<h3>Your Second Phone Terms of Service</h3>
 				</header>
 				<div class="panel_body">
-					<h2>
-						Web Site Terms and Conditions of Use
-					</h2>
-
 					<h3>
 						1. Terms
 					</h3>
@@ -29,14 +25,14 @@
 						2. Use License
 					</h3>
 
-					<ol>
+					<ol type="a">
 						<li>
 							Permission is granted to temporarily download one copy of the materials 
 							(information or software) on Your Second Phone's web site for personal, 
 							non-commercial transitory viewing only. This is the grant of a license, 
 							not a transfer of title, and under this license you may not:
 							
-							<ol>
+							<ol type="i">
 								<li>modify or copy the materials;</li>
 								<li>use the materials for any commercial purpose, or for any public display (commercial or non-commercial);</li>
 								<li>attempt to decompile or reverse engineer any software contained on Your Second Phone's web site;</li>
@@ -53,7 +49,7 @@
 						3. Disclaimer
 					</h3>
 
-					<ol>
+					<ol type="a">
 						<li>
 							The materials on Your Second Phone's web site are provided "as is". Your Second Phone makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights. Further, Your Second Phone does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its Internet web site or otherwise relating to such materials or on any sites linked to this site.
 						</li>
