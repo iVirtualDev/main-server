@@ -78,6 +78,11 @@ body#main div#main_panel header div#session_link {
   padding: 5px;
   font-size: 0.8em;
   color: white;
+  display: table;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 body#main div#main_panel div#subscription_hold > div[id^="stream"] {
   float: right;
