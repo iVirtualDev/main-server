@@ -185,10 +185,13 @@ body ul#notice-base li.notice-item {
   min-width: 220px;
   max-width: 320px;
   padding: 10px;
-  border-radius: 3px;
   color: white;
   border-left-width: 5px;
   border-left-style: solid;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 body ul#notice-base li.notice-item h1,
 body ul#notice-base li.notice-item h2,
