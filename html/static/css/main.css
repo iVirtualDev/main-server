@@ -70,6 +70,14 @@ ul.button-group li:only-child a {
 .cf {
   zoom: 1;
 }
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
 body div#page_content {
   margin-top: 25px;
 }
