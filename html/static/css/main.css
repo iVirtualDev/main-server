@@ -215,6 +215,10 @@ body footer#global_footer ul.inline-list {
   margin: 0 auto;
   display: table;
 }
+body footer#global_footer div#twitter {
+  text-align: center;
+  padding: 10px;
+}
 body div.panel {
   background: none;
   border: none;
