@@ -5,7 +5,7 @@
 		<div class="large-12 columns">
 			<div class="panel">
 				<header>
-					<h3>Your Second Phone Terms of Service</h3>
+					<h3><i class="icon-legal"></i>&nbsp;Your Second Phone Terms of Service</h3>
 				</header>
 				<div class="panel_body">
 					<h3>
