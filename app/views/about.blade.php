@@ -83,4 +83,21 @@
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="panel">
+				<header>
+					<h3><i class="icon-code-fork"></i>&nbsp;Contributing</h3>
+				</header>
+				<div class="panel_body">
+					<p>
+						<b>Your Second Phone</b> is open source. The code that runs everything is freely available to sift through. Contributions to the code and pull-requests are welcomed.
+					</p>
+					<p>
+						If you find and issue but don't know much code, thats okay, just open an issue on GitHub and it will be addressed.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 @stop
