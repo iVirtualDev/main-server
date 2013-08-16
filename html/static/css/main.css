@@ -94,6 +94,21 @@ body#main div#main_panel header div#session_link_hold {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+body#main div#main_panel header div#session_link_hold table {
+  background: none;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
+body#main div#main_panel header div#session_link_hold table tr {
+  padding: 0px;
+  margin: 0px;
+}
+body#main div#main_panel header div#session_link_hold table tr td {
+  color: white;
+  margin: 0px;
+  padding: 0px;
+}
 body#main div#main_panel header div#session_link_hold div#session_link {
   display: inline-table;
 }
