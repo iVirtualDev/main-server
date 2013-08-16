@@ -121,9 +121,6 @@ body#main div#chat_input_hold input#chat_input {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-body#main div#incompatible_browser {
-  margin-bottom: 100px;
-}
 body#main div#incompatible_browser div.panel_body p {
   font-size: 0.9em;
 }
