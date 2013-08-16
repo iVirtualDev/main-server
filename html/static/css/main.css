@@ -274,6 +274,10 @@ body .button {
   border-bottom-left-radius: 5px;
   color: white;
 }
+body button:hover,
+body .button:hover {
+  background-color: #54d98c;
+}
 body button:active,
 body .button:active {
   background-color: #27ae60;
