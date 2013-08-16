@@ -34,14 +34,14 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
     </head>
     <body id="{{ $page_id }}">
 		<div class="row">
-			<div class="large-10 large-centered columns">
+			<div class="large-9 large-centered columns">
 				<header id="global_header">
 					<h2>Your Second Phone</h2>
 				</header>
 			</div>
 		</div>
 		<div class="row">
-            <div class="large-10 large-centered columns">
+            <div class="large-9 large-centered columns">
                 <div id="page_content">
                     @yield('main')
                 </div>
