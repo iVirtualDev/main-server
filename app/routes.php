@@ -13,6 +13,18 @@
 
 use Ikimea\Browser\Browser;
 
+/**
+ * JSend formatter - Used to create a JSend compliant array that is ready to be encoded in JSON and sent to an expecting AJAX call in JavaScript
+ * Read more: http://labs.omniti.com/labs/jsend
+ * 
+ * @param  string  $status  Success - Everything went just fine, just returning requested/relevant data
+ *                          Fail 	- Bad input was found, the user probably caused this error by not entering something right
+ *                          Error 	- An error occured in the server, this was not the fault of the user, say your sorry server!
+ * @param  array   $data    Any relevant/requested data that should be sent back with the response
+ * @param  string  $message If status is "error" this will be the error message sent back
+ * @param  integer $code    If status is "error" this will be the error code sent back
+ * @return array           	A JSend compliant array, ready to be converted into JSON
+ */
 function jsend($status, $data = array(), $message = "Unknown Error", $code = 301){
 	$out = array();
 	if(in_array($status, array("fail", "error", "success"))){
