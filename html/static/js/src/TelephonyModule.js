@@ -94,7 +94,10 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 				new notice('Successfully connected!', {
 					type: 'success'
 				});
-				mod_root.publisher = TB.initPublisher(mod_root.apiKey, 'publisher');
+				mod_root.publisher = TB.initPublisher(mod_root.apiKey, 'publisher', {
+					width:320,
+					height:200
+				});
 				mod_root.session.publish(mod_root.publisher);
 
 				mod_root.processStreams(event.streams);
