@@ -50,7 +50,7 @@ define(['Ractive', 'rv!/static/templates/view.html', 'url', 'src/MessageClass', 
 		session_link_hover: function(event) {
 			var el = event.node;
 			el.focus();
-			win = win || window;
+			var win = window;
 			var doc = win.document,
 				sel, range;
 			if (win.getSelection && doc.createRange) {
