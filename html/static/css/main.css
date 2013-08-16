@@ -116,6 +116,7 @@ body#main div#main_panel div#subscription_hold > div[id^="stream"] {
   float: right;
 }
 body#main div#main_panel ul#chat {
+  margin-left: 0px;
   background-color: white;
   margin-top: 10px;
   margin-bottom: 0px;
