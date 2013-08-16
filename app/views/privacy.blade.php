@@ -43,6 +43,8 @@
 					
 					<h3>Personal Note</h3>
 					<p>I (Nick Comer) use a lot of services on the internet and I know what it means to be careful with data. I am treating the information that flows through Your Second Phone the same way I would want my information to be treated; which is with complete discretion.</p>
+
+					<small><i>Last Edited: August 16, 2013 14:20:20 EST</i></small>
 				</div>
 			</div>
 		</div>
