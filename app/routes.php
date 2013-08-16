@@ -45,7 +45,7 @@ function jsend($status, $data = array(), $message = "Unknown Error", $code = 301
 View::composer('layout', function($view){
 	$browser = new Browser();
 
-	$view->with('is_mobile', $browser->isMobile());
+	$view->with('is_mobile', $browser->isMobile())->with('show_ad', true);
 });
 
 Route::get('/{sid?}', function($sid = null)
@@ -93,10 +93,10 @@ Route::get('/static/js/lang.js', function(){
 });
 
 Route::get('about', function(){
-	return View::make('about', array("page_id" => "about"));
+	return View::make('about', array("page_id" => "about", "show_ad" => false));
 });
 Route::get('privacy', function(){
-	return View::make('privacy', array("page_id" => "privacy"));
+	return View::make('privacy', array("page_id" => "privacy", "show_ad" => false));
 });
 
 /**

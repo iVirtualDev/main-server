@@ -66,30 +66,32 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
         <script src="//cdnjs.cloudflare.com/ajax/libs/sugar/1.3.9/sugar.min.js"></script>
         @yield('js')
         
-        @if($is_mobile)
-            <div id="ad" class="mobile">
-                <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- ysp_mobile -->
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:320px;height:50px"
-                     data-ad-client="ca-pub-6604919870949736"
-                     data-ad-slot="2331462035"></ins>
-                <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        @else
-            <div id="ad" align="center">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- video_chat_ysp -->
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:970px;height:90px"
-                     data-ad-client="ca-pub-6604919870949736"
-                     data-ad-slot="4713178837"></ins>
-                <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
+        @if($show_ad)
+            @if($is_mobile)
+                <div id="ad" class="mobile">
+                    <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- ysp_mobile -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:320px;height:50px"
+                         data-ad-client="ca-pub-6604919870949736"
+                         data-ad-slot="2331462035"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            @else
+                <div id="ad" align="center">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- video_chat_ysp -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:970px;height:90px"
+                         data-ad-client="ca-pub-6604919870949736"
+                         data-ad-slot="4713178837"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            @endif
         @endif
         <script>
             var _gaq=[['_setAccount','UA-42099921-1'],['_trackPageview']];
