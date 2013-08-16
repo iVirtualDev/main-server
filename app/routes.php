@@ -100,7 +100,7 @@ Route::get('privacy', function(){
 	return View::make('privacy', array("page_id" => "privacy", "show_ad" => false));
 });
 Route::get('terms', function(){
-	return View::make('termns', array("page_id" => "terms", "show_ad" => false));
+	return View::make('terms', array("page_id" => "terms", "show_ad" => false));
 });
 
 /**
