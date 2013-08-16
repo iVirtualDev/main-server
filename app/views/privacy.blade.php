@@ -5,7 +5,7 @@
 		<div class="large-12 columns">
 			<div class="panel">
 				<header>
-					<h2>Your Second Phone Privacy Policy</h2>
+					<h3><i class="icon-eye-open"></i>&nbsp;Your Second Phone Privacy Policy</h3>
 				</header>
 				<div class="panel_body">
 					<h3>Our Approach</h3>
