@@ -2,7 +2,7 @@
 
 @section('main')
 	<div class="row">
-		@if($skipintro)
+		@if($skipintro && $compatible)
 			<div class="large-12 columns" id="main_content">
 				
 			</div>
