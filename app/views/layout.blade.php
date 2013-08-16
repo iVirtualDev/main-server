@@ -47,7 +47,18 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
                 </div>
             </div>
 		</div>
-        
+        <div class="row">
+            <div class="large-9 large-centered columns">
+                <footer id="global_footer">
+                    <ul class="inline-list">
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="https://github.com/yoursecondphone">GitHub</a></li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+
         <script src="//cdnjs.cloudflare.com/ajax/libs/sugar/1.3.9/sugar.min.js"></script>
         @yield('js')
         
