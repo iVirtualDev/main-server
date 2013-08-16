@@ -210,6 +210,7 @@ body header#global_header h2 {
 }
 body footer#global_footer {
   margin-bottom: 100px;
+  padding: 10px;
   background-color: #ecf0f1;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
@@ -222,7 +223,7 @@ body footer#global_footer ul.inline-list {
 }
 body footer#global_footer div#twitter {
   text-align: center;
-  padding: 10px;
+  padding-top: 10px;
 }
 body div.panel {
   background: none;
