@@ -210,6 +210,11 @@ body header#global_header h2 {
 }
 body footer#global_footer {
   margin-bottom: 100px;
+  background-color: #ecf0f1;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 body footer#global_footer ul.inline-list {
   margin: 0 auto;
