@@ -16,7 +16,7 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 				this.init();
 
 				if (jQuery('#ad').height() == 0) {
-					new notice("<i class=\"icon-frown icon-3x pull-left\"></i>Please don't hide the ads, it's how Your Second Phone is kept alive.", {
+					new notice("<i class=\"icon-frown icon-3x pull-left\"></i>Please don't hide the ads.", {
 						type: 'error',
 						onclick: function() {
 							return false;
