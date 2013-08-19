@@ -93,14 +93,6 @@ Route::get('/{sid?}', function($sid = null)
 
 })->where('sid', '^[a-zA-Z0-9]{8}$');
 
-Route::get('/static/js/lang.js', function(){
-	$view = View::make('js_lang');
-	$res = Response::make($view, 200);
-	$res->header('Content-type', 'application/javascript');
-
-	return $res;
-});
-
 Route::get('about', function(){
 	global $defaultParams;
 
@@ -124,6 +116,14 @@ Route::get('terms', function(){
 	$params["page_id"] = "terms";
 
 	return View::make('terms', $params);
+});
+
+Route::get('/static/js/lang.js', function(){
+	$view = View::make('js_lang');
+	$res = Response::make($view, 200);
+	$res->header('Content-type', 'application/javascript');
+
+	return $res;
 });
 
 /**
