@@ -89,9 +89,6 @@ Route::get('/{sid?}', function($sid = null)
 		$params["no_crawl_index"] = true;
 	}
 
-	print_r($params);
-	exit();
-
 	return View::make('main', $params);
 
 })->where('sid', '^[a-zA-Z0-9]{8}$');
