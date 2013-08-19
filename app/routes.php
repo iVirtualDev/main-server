@@ -45,7 +45,7 @@ function jsend($status, $data = array(), $message = "Unknown Error", $code = 301
 }
 
 $defaultParams = array(
-	"no_crawl_index" = false,
+	"no_crawl_index" => false,
 	"show_ad" => false,
 	"is_mobile" => $browser->isMobile()
 );
