@@ -25,6 +25,10 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
         <meta name="keywords" content="video chat call chat message messaging talk conversation facetime skype google hangouts facebook private secure free no account encrypted open-source open source telephone phone dial cellphone iphone">
         <meta name="viewport" content="width=device-width">
 
+        @if($no_crawl_index)
+        <meta name="robots" content="NOINDEX, FOLLOW">
+        @endif
+
         <meta property="og:site_name" content="Your Second Phone">
         <meta property="og:description" content="Your Second Phone is a turnkey video chat application. Create a video chat session for free and with no account!">
         <meta property="og:type" content="website">
