@@ -14,8 +14,7 @@ require.config({
 		BaseModule: ['src/BaseModule'],
 		opentok: ['lib/TB.min'],
 		notice: ['lib/notice.min'],
-		socket: ['//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min', 'lib/socket.io.min'],
-		sizzle: ['//cdnjs.cloudflare.com/ajax/libs/sizzle/1.10.5/sizzle.min', 'lib/sizzle.min']
+		socket: ['//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min', 'lib/socket.io.min']
 	},
 	shim: {
 		'stapes': {
@@ -26,9 +25,6 @@ require.config({
 		},
 		'opentok': {
 			exports: 'TB'
-		},
-		'sizzle': {
-			exports: "Sizzle"
 		}
 	}
 });
