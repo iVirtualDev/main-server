@@ -76,7 +76,6 @@ Route::get('/{sid?}', function($sid = null)
 		}
 	}
 
-	$params = array();
 	$params["compatible"] = $compatible;
 	$params["page_id"] = "main";
 	$params["skipintro"] = false;
