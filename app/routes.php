@@ -89,6 +89,8 @@ Route::get('/{sid?}', function($sid = null)
 		$params["no_crawl_index"] = true;
 	}
 
+	print_r($params);
+
 	return View::make('main', $params);
 
 })->where('sid', '^[a-zA-Z0-9]{8}$');
@@ -103,7 +105,7 @@ Route::get('/static/js/lang.js', function(){
 
 Route::get('about', function(){
 	global $defaultParams;
-	
+
 	$params = $defaultParams;
 	$params["page_id"] = "about";
 
@@ -111,7 +113,7 @@ Route::get('about', function(){
 });
 Route::get('privacy', function(){
 	global $defaultParams;
-	
+
 	$params = $defaultParams;
 	$params["page_id"] = "privacy";
 
@@ -119,7 +121,7 @@ Route::get('privacy', function(){
 });
 Route::get('terms', function(){
 	global $defaultParams;
-	
+
 	$params = $defaultParams;
 	$params["page_id"] = "terms";
 
