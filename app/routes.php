@@ -90,7 +90,8 @@ Route::get('/{sid?}', function($sid = null)
 		$params["no_crawl_index"] = true;
 	}
 
-	exit($params);
+	print_r($params);
+	exit();
 
 	return View::make('main', $params);
 
