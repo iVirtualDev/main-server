@@ -36,7 +36,7 @@ $logFile = 'log-'.php_sapi_name().'.txt';
 Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
 App::missing(function($exception){
-	return Response::view('errors.missing', array("page_id" => "missing", "show_ad" => false, "is_mobile" => false), 404);
+	return Response::view('errors.missing', array("page_id" => "missing", "show_ad" => false, "is_mobile" => false, "no_crawl_index" => true), 404);
 });
 
 /*
