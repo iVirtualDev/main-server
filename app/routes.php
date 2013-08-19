@@ -13,6 +13,8 @@
 
 use Ikimea\Browser\Browser;
 
+$browser = new Browser();
+
 /**
  * JSend formatter - Used to create a JSend compliant array that is ready to be encoded in JSON and sent to an expecting AJAX call in JavaScript
  * Read more: http://labs.omniti.com/labs/jsend
@@ -42,17 +44,18 @@ function jsend($status, $data = array(), $message = "Unknown Error", $code = 301
 	}
 }
 
-View::composer('layout', function($view){
-	$browser = new Browser();
-
-	$view->with('is_mobile', $browser->isMobile());
-});
+$defaultParams = array(
+	"no_crawl_index" = false,
+	"show_ad" => false,
+	"is_mobile" => $browser->isMobile()
+);
 
 Route::get('/{sid?}', function($sid = null)
 {
-	$browser = new Browser();
 	$type = $browser->getBrowser();
 	$version = $browser->getVersion();
+
+	$params = $defaultParams;
 
 	$compatible = false;
 
@@ -81,6 +84,10 @@ Route::get('/{sid?}', function($sid = null)
 		$params["skipintro"] = true;
 	}
 
+	if($sid != null) {
+		$params["no_crawl_index"] = true;
+	}
+
 	return View::make('main', $params);
 
 })->where('sid', '^[a-zA-Z0-9]{8}$');
@@ -94,13 +101,22 @@ Route::get('/static/js/lang.js', function(){
 });
 
 Route::get('about', function(){
-	return View::make('about', array("page_id" => "about", "show_ad" => false));
+	$params = $defaultParams;
+	$params["page_id"] = "about";
+
+	return View::make('about', $params);
 });
 Route::get('privacy', function(){
-	return View::make('privacy', array("page_id" => "privacy", "show_ad" => false));
+	$params = $defaultParams;
+	$params["page_id"] = "privacy";
+
+	return View::make('privacy', $params);
 });
 Route::get('terms', function(){
-	return View::make('terms', array("page_id" => "terms", "show_ad" => false));
+	$params = $defaultParams;
+	$params["page_id"] = "terms";
+
+	return View::make('terms', $params);
 });
 
 /**
