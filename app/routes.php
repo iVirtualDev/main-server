@@ -52,6 +52,8 @@ $defaultParams = array(
 
 Route::get('/{sid?}', function($sid = null)
 {
+	global $browser;
+	
 	$type = $browser->getBrowser();
 	$version = $browser->getVersion();
 
