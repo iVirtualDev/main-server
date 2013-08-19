@@ -56,6 +56,7 @@ Route::get('/{sid?}', function($sid = null)
 	$type = $browser->getBrowser();
 	$version = $browser->getVersion();
 
+
 	$params = $defaultParams;
 
 	$compatible = false;
@@ -89,7 +90,7 @@ Route::get('/{sid?}', function($sid = null)
 		$params["no_crawl_index"] = true;
 	}
 
-	print_r($params);
+	exit($params);
 
 	return View::make('main', $params);
 
