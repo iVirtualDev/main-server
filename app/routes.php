@@ -52,8 +52,7 @@ $defaultParams = array(
 
 Route::get('/{sid?}', function($sid = null)
 {
-	global $browser;
-	
+	global $browser, $defaultParams;
 	$type = $browser->getBrowser();
 	$version = $browser->getVersion();
 
@@ -103,18 +102,24 @@ Route::get('/static/js/lang.js', function(){
 });
 
 Route::get('about', function(){
+	global $defaultParams;
+	
 	$params = $defaultParams;
 	$params["page_id"] = "about";
 
 	return View::make('about', $params);
 });
 Route::get('privacy', function(){
+	global $defaultParams;
+	
 	$params = $defaultParams;
 	$params["page_id"] = "privacy";
 
 	return View::make('privacy', $params);
 });
 Route::get('terms', function(){
+	global $defaultParams;
+	
 	$params = $defaultParams;
 	$params["page_id"] = "terms";
 
