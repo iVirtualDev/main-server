@@ -5,7 +5,6 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 			apiKey: '26350302',
 			constructor: function(callback) {
 				this.init();
-				console.time("Telephony set up in");
 				var mod_root = this,
 					sid = url("path").replace(/\//gi, "");
 
@@ -90,7 +89,6 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 			},
 			onConnect: function(event) {
 				var mod_root = base.telephonyModule;
-				console.timeEnd("Telephony set up in");
 				mod_root.debug('Successfully connected to session; publishing stream to session...');
 				new notice('Successfully connected!', {
 					type: 'success'
