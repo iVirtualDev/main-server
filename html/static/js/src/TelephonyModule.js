@@ -5,9 +5,8 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 			apiKey: '26350302',
 			constructor: function(callback) {
 				this.init();
-				var mod_root = this,
-					sid = base.sid;
-
+				var mod_root = this;
+				
 				async.series([
 					function(callback) {
 						mod_root.debug('Checking system requirements');

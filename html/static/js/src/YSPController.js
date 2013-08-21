@@ -107,6 +107,7 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 
 							base.viewModule.set('sid', base.sid);
 							base.viewModule.set('session_link', "http://ysp.im/{1}".assign(base.sid));
+							history.pushState(null, 'Your Second Phone', base.sid);
 
 							callback(null);
 						});

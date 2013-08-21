@@ -19,7 +19,7 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 			},
 			onConnect: function() {
 				cb(null); //Call the YSPController passed callback
-				room = base.telephonyModule.sid;
+				room = base.sid;
 				var mod_root = base.chatModule;
 				mod_root.debug('Successfully connected to chat server; joining session chat room...');
 				chat.emit('join', room);
