@@ -144,7 +144,7 @@ function generate_sid($length) {
 				$out += $consonants[mt_rand(0, 20)];
 				break;
 			default:
-				$out += $vowels[mt_rand(0, 4)]
+				$out += $vowels[mt_rand(0, 4)];
 				break;
 		}
 	}
