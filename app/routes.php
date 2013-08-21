@@ -152,6 +152,9 @@ function generate_sid($length) {
 	return $out;
 }
 
+Route::resource('session', 'SessionController', array('only' => array('index', 'show')));
+
+/*
 Route::group(array('prefix' => 'session'), function(){
 
 	$opentok = new OpenTokSDK( API_Config::API_KEY, API_Config::API_SECRET );
