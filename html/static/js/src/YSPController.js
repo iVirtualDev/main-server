@@ -16,7 +16,7 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 				base.lang = lang; //Set up language object
 				this.init();
 
-				if (jQuery('#ad').height() == 0) {
+				if ($('#ad').height() == 0) {
 					new notice("<i class=\"icon-frown icon-3x pull-left\"></i>Please don't hide the ads.", {
 						type: 'error',
 						onclick: function() {
@@ -28,11 +28,11 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 					this.error('User is blocking advertisements', base.error_map.user_is_blocking_ads);
 				}
 
-				jQuery(document).ajaxError(function() {
+				$(document).ajaxError(function() {
 					base.error(base.lang.global_ajax_error, base.error_map.global_ajax_error);
 				});
 
-				if (typeof jQuery('#noaccount')[0] != "undefined") {
+				if (typeof $('#noaccount')[0] != "undefined") {
 					document.getElementById('bootstrap').onclick = (base.bootstrap).bind(base);
 				} else {
 					base.bootstrap();
@@ -62,17 +62,17 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 					}
 				];
 
-				if (typeof jQuery('#noaccount')[0] != "undefined") {
+				if (typeof $('#noaccount')[0] != "undefined") {
 					startup_sequence.unshift(function(callback) {
-						jQuery('#videochat').addClass('fadeOutLeft');
-						jQuery('#noaccount').addClass('fadeOutRight');
-						jQuery('#bootstrap').fadeOut(1000);
+						$('#videochat').addClass('fadeOutLeft');
+						$('#noaccount').addClass('fadeOutRight');
+						$('#bootstrap').fadeOut(1000);
 
 						setTimeout(function() {
-							jQuery('#videochat').remove();
-							jQuery('#noaccount').remove();
-							jQuery('#bootstrap').remove();
-							jQuery('#main_hold').html('');
+							$('#videochat').remove();
+							$('#noaccount').remove();
+							$('#bootstrap').remove();
+							$('#main_hold').html('');
 							callback(null);
 						}, 1000);
 					});
