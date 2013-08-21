@@ -22,6 +22,8 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 						}
 					},
 					function(callback) {
+						NProgress.inc();
+
 						mod_root.debug('Initializing session');
 						//Either start, or rejoin a session
 						if (sid === "") {
@@ -50,6 +52,8 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 						}
 					},
 					function(callback) {
+						NProgress.inc();
+
 						mod_root.debug('Getting session token');
 						//Retrieve a token for the session.
 						mod_root.ajax('/telephony/get_token/{1}'.assign(mod_root.sid), {
@@ -61,6 +65,7 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 					}
 				], function(err) {
 					if (err) {
+						NProgress.done();
 						mod_root.error(err.msg, err.code);
 						return;
 					}
@@ -84,10 +89,14 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 					base.viewModule.set('session_link', 'http://ysp.im/{1}'.assign(mod_root.sid));
 
 					callback(null);
+
+					NProgress.inc();
 				});
 
 			},
 			onConnect: function(event) {
+				NProgress.inc();
+
 				var mod_root = base.telephonyModule;
 				mod_root.debug('Successfully connected to session; publishing stream to session...');
 				new notice('Successfully connected!', {
