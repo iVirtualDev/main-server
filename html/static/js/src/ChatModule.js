@@ -1,11 +1,14 @@
 define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 	function(BaseModule, socket, notice, url, Message) {
-		var chat, room;
+		var chat, room, cb;
 
 		var ChatModule = BaseModule.subclass({
 			module_id: 'ChatModule',
-			constructor: function() {
+			constructor: function(callback) {
 				this.init();
+				NProgress.inc();
+				cb = callback;
+
 				chat = io.connect('https://chat.ysp.im:1337')
 					.on('connect', this.onConnect)
 					.on('msg', this.onMsg)
@@ -15,6 +18,8 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 					.on('reconnect', this.reconnect);
 			},
 			onConnect: function() {
+				NProgress.inc();
+				cb(); //Call the YSPController passed callback
 				room = base.telephonyModule.sid;
 				var mod_root = base.chatModule;
 				mod_root.debug('Successfully connected to chat server; joining session chat room...');
