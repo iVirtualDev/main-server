@@ -47,6 +47,15 @@
 					</div>
 				</div> 
 				{{/chat_available}}
+				{{^chat_available}}
+				<div class="row">
+					<div class="large-12 columns">
+						<div id="chat_unavailable">
+							<h5>Chat is unavailabe right now...</h5>
+						</div>
+					</div>
+				</div>
+				{{/chat_available}}
 			</div>
 		</div>
 	</div>
