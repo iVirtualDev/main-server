@@ -40,25 +40,30 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 			},
 			bootstrap: function() {
 				this.debug('Bootstrapping...');
+				NProgress.start(); //Start NProgress loading bar.
 
 				var startup_sequence = [
 					function(callback) {
+						NProgress.inc();
+
 						base.fatalErrors = new FatalErrors(callback);
 					},
 					function(callback) {
+						NProgress.inc();
+
 						base.viewModule = new ViewModule(callback);
 						base.viewModule.on('input_activity', base.viewModule.input_activity);
 						base.viewModule.on('session_link_hover', base.viewModule.session_link_hover);
 					},
 					function(callback) {
+						NProgress.inc();
+
 						base.telephonyModule = new TelephonyModule(callback);
 					},
 					function(callback) {
-						base.chatModule = new ChatModule(callback);
-					},
-					function(callback) {
+						NProgress.inc();
 
-						callback(null);
+						base.chatModule = new ChatModule(callback);
 					}
 				];
 
@@ -78,8 +83,8 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 					});
 				}
 
-				async.series(startup_sequence, function(err, res) {
-					log.info(res);
+				async.series(startup_sequence, function(err) {
+					NProgress.done();
 				});
 			}
 		});
