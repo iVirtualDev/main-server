@@ -50,6 +50,13 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 						base.fatalErrors = new FatalErrors(callback);
 					},
 					function(callback) {
+						NProgress.inc();
+
+						base.viewModule = new ViewModule(callback);
+						base.viewModule.on('input_activity', base.viewModule.input_activity);
+						base.viewModule.on('session_link_hover', base.viewModule.session_link_hover);
+					},
+					function(callback) {
 						//Centralizing the retrieval of session data, with retries.
 						//now more robust
 						var tries = 0;
@@ -98,15 +105,11 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 								return;
 							}
 
+							base.viewModule.set('sid', base.sid);
+							base.viewModule.set('session_link', "http://ysp.im/{1}".assign(base.sid));
+
 							callback(null);
 						});
-					},
-					function(callback) {
-						NProgress.inc();
-
-						base.viewModule = new ViewModule(callback);
-						base.viewModule.on('input_activity', base.viewModule.input_activity);
-						base.viewModule.on('session_link_hover', base.viewModule.session_link_hover);
 					},
 					function(callback) {
 						NProgress.inc();

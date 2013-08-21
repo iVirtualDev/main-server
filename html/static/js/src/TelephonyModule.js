@@ -23,7 +23,6 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 					}
 				], function(err) {
 					if (err) {
-						callback(err);
 						mod_root.error(err.msg, err.code);
 						return;
 					}
@@ -42,9 +41,6 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 
 					//Connect to the session
 					mod_root.session.connect(mod_root.apiKey, base.token);
-
-					base.viewModule.set('sid', base.sid);
-					base.viewModule.set('session_link', 'http://ysp.im/{1}'.assign(base.sid));
 
 					callback(null);
 				});

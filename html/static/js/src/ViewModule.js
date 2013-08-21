@@ -4,7 +4,7 @@ define(['Ractive', 'rv!/static/templates/view.html', 'url', 'src/MessageClass'],
 		el: document.getElementById('page_content'),
 		template: template,
 		data: {
-			sid: url("path").replace(/\//gi, ""),
+			sid: 'Loading...',
 			session_link: 'Loading...',
 			fatalError: false,
 			fatal_error_message: 'Unknown Error!',
