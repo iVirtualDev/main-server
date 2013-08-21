@@ -106,6 +106,6 @@ class SessionController extends BaseController {
     }
 
     public function show($sid) {
-    	return 'session.show';
+    	return "show = {$sid}";
     }
 }
