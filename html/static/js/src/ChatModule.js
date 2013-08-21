@@ -4,9 +4,9 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 
 		var ChatModule = BaseModule.subclass({
 			module_id: 'ChatModule',
-			subscribedCodes: [base.error_map.socket_error, base.error_map.socket_connect_failed],
 			constructor: function(callback) {
 				this.init();
+				this.subscribedCodes = [base.error_map.socket_error, base.error_map.socket_connect_failed];
 				cb = callback;
 
 				chat = io.connect('https://chat.ysp.im:1337')
