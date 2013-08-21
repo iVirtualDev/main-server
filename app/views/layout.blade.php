@@ -78,8 +78,11 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
             </div>
         </div>
         
+        <!-- Load jQuery -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <!-- Fallback if necessary -->
         <script>window.jQuery || document.write('<script src="/static/js/lib/jquery.min.js"><\/script>')</script>
+
         <script src="//cdnjs.cloudflare.com/ajax/libs/sugar/1.3.9/sugar.min.js"></script>
         @yield('js')
         
