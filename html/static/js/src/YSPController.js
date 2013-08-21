@@ -58,24 +58,24 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 						async.doWhilst(function(callback) {
 							tries++;
 							var url, opts = {
-								success: function(data){
-									mod_root.sid = data.sid;
-									mod_root.session_id = data.session_id;
-									mod_root.token = data.token;
+									success: function(data) {
+										mod_root.sid = data.sid;
+										mod_root.session_id = data.session_id;
+										mod_root.token = data.token;
 
-									callback(null);
-								},
-								fail: function(){
-									callback(null);
-								},
-								error: function(){
-									callback(null);
-								}
-							};
+										callback(null);
+									},
+									fail: function() {
+										callback(null);
+									},
+									error: function() {
+										callback(null);
+									}
+								};
 
-							if(sid === ""){
+							if (sid === "") {
 								url = "/session/create";
-							}else{
+							} else {
 								url = "/session/{1}".assign(sid);
 							}
 

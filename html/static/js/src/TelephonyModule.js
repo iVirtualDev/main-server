@@ -57,8 +57,8 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 					type: 'success'
 				});
 				mod_root.publisher = TB.initPublisher(mod_root.apiKey, 'publisher', {
-					width:320,
-					height:200
+					width: 320,
+					height: 200
 				});
 				mod_root.session.publish(mod_root.publisher);
 
@@ -87,8 +87,8 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 						sub_hold.appendChild(sub);
 
 						mod_root.session.subscribe(streams[i], sub.id, {
-							width:320,
-							height:200
+							width: 320,
+							height: 200
 						});
 						return;
 					}
