@@ -1,4 +1,5 @@
-log.setLevel(log.levels.ERROR);
+//log.setLevel(log.levels.ERROR);
+log.enableAll();
 
 require.config({
 	baseUrl: '/static/js/',
