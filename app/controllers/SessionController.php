@@ -120,7 +120,7 @@ class SessionController extends BaseController {
 		if ( preg_match( "/^[a-z]{8}$/us", $sid ) ) {
 			//If the Cache still remembers the sid, extract the info
 			if ( Cache::has( $sid ) ) {
-				$session_id = Cache::get( $sid )
+				$session_id = Cache::get( $sid );
 				$token = $this->get_token( $sid );
 				//Info extracted? Good! Send that back to the User!
 				return Response::json( jsend( "success", array( "sid" => $sid, "session_id" => $session_id, "token" => $token ) ) );
