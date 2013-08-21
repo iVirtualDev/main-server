@@ -123,11 +123,11 @@ class SessionController extends BaseController {
 				$session_id = Cache::get( $sid );
 				$token = $this->get_token( $sid );
 				//Info extracted? Good! Send that back to the User!
-				return Response::json( jsend( "success", array( "sid" => $sid, "session_id" => $session_id, "token" => $token ) ) );
+				return Response::json( $this->jsend( "success", array( "sid" => $sid, "session_id" => $session_id, "token" => $token ) ) );
 			}else {
 				//Cache doesn't remember? Flush the User's session to prevent referencing errors n such, tell the user the bad news
 				Session::flush();
-				return Response::json( jsend( "fail", array( "code" => 1404 ) ) );
+				return Response::json( $this->jsend( "fail", array( "code" => 1404 ) ) );
 			}
 		} else {
 			return Response::json( $this->jsend( "fail", array( "code" => 400, "Invalid SID" ) ) );
