@@ -152,7 +152,7 @@ function generate_sid($length) {
 	return $out;
 }
 
-Route::resource('session', 'SessionController', array('only' => array('index', 'show')));
+Route::resource('session', 'SessionController', array('only' => array('create', 'show')));
 
 /*
 Route::group(array('prefix' => 'session'), function(){
