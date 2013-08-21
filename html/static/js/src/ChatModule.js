@@ -38,6 +38,7 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 				base.viewModule.publishMessage(new Message('received', msg));
 			},
 			onError: function() {
+				cb();
 				var mod_root = base.chatModule;
 				mod_root.error('An error occured while communicating with the chat server', base.error_map.socket_error);
 			},
