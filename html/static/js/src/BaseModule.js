@@ -1,4 +1,4 @@
-define(['stapes', 'underscore', 'jquery', 'notice'], function(Stapes, _, $, notice){
+define(['stapes', 'underscore', 'notice'], function(Stapes, _, notice){
 	var BaseModule = Stapes.subclass({
 		subscribedCodes:[],
 		/**

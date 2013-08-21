@@ -1,5 +1,5 @@
-define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/FatalErrors', 'lang', 'jquery', 'async', 'underscore', 'notice'],
-	function(BaseModule, ChatModule, ViewModule, TelephonyModule, FatalErrors, lang, jQuery, async, _, notice) {
+define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/FatalErrors', 'lang', 'async', 'underscore', 'notice'],
+	function(BaseModule, ChatModule, ViewModule, TelephonyModule, FatalErrors, lang, async, _, notice) {
 		var YSPController = BaseModule.subclass({
 			module_id: 'YSPController',
 			error_map: {
@@ -13,6 +13,7 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 			timestamp_fmt: "{HH}:{mm}:{ss}",
 			constructor: function() {
 				base = this;
+				base.lang = lang; //Set up language object
 				this.init();
 
 				if (jQuery('#ad').height() == 0) {
@@ -41,11 +42,6 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 				this.debug('Bootstrapping...');
 
 				var startup_sequence = [
-					function(callback) {
-						base.debug('Setting up locale strings...');
-						base.lang = lang;
-						callback(null);
-					},
 					function(callback) {
 						base.fatalErrors = new FatalErrors(callback);
 					},
