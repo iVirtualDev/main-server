@@ -77,13 +77,28 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 								url = "/session/create";
 							} else {
 								url = "/session/{1}".assign(sid);
+								opts.fail = function(data){
+									if(data.code === 1404) {
+										callback({
+											msg: base.lang.session_not_found,
+											code: base.error_map.session_not_found
+										});
+									}
+								};
 							}
 
 							mod_root.ajax(url, opts);
 						}, function() {
 							return (typeof base.sid === "undefined") || (tries < 3);
 						}, function(err) {
-							log.info('hmm...');
+							if(typeof base.sid === "undefined" || err) {
+								var m = err.msg || base.lang.global_ajax_error;
+								var c = err.code || base.error_map.global_ajax_error;
+								mod_root.error(m, c);
+								return;
+							}
+
+							callback(null);
 						});
 					},
 					function(callback) {

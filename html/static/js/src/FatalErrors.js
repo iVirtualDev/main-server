@@ -1,7 +1,7 @@
 define(['BaseModule', 'notice'], function(BaseModule, notice) {
 	var FatalErrors = BaseModule.subclass({
 		module_id: 'FatalErrors',
-		subscribedCodes: [1007, 5001, 5003, 2000],
+		subscribedCodes: [1007, 5001, 5002, 5003, 2000],
 		constructor: function(callback) {
 			this.init();
 			callback(null);
