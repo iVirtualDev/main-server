@@ -4,6 +4,7 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 
 		var ChatModule = BaseModule.subclass({
 			module_id: 'ChatModule',
+			subscribedCodes: [base.error_map.socket_error, base.error_map.socket_connect_failed],
 			constructor: function(callback) {
 				this.init();
 				cb = callback;
@@ -17,7 +18,7 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 					.on('reconnect', this.reconnect);
 			},
 			onConnect: function() {
-				cb(); //Call the YSPController passed callback
+				cb(null); //Call the YSPController passed callback
 				room = base.telephonyModule.sid;
 				var mod_root = base.chatModule;
 				mod_root.debug('Successfully connected to chat server; joining session chat room...');
@@ -36,18 +37,14 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 				base.viewModule.publishMessage(new Message('received', msg));
 			},
 			onError: function() {
-				cb();
+				cb(null);
 				var mod_root = base.chatModule;
 				mod_root.error('An error occured while communicating with the chat server', base.error_map.socket_error);
 			},
 			connectFailed: function() {
-				cb();
+				cb(null);
 				var mod_root = base.chatModule;
 				mod_root.error('Failed to connect to the chat server.', base.error_map.socket_connect_failed);
-				new notice(base.lang.socket_connect_failed, {
-					type: 'error'
-				});
-				base.viewModule.set('chat_available', false);
 			},
 			disconnect: function() {
 				base.chatModule.debug('Lost connection to chat server; attempting to reconnect...');
@@ -60,6 +57,18 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 				new notice(base.lang.socket_reconnect, {
 					type: 'success'
 				});
+			},
+			handleError: function(event) {
+				switch (event.code) {
+					case base.error_map.socket_connect_failed:
+					case base.error_map.socket_error:
+						//Hide the chat, because its kinda useless :/
+						base.viewModule.set('chat_available', false);
+						new notice(base.lang.socket_connect_failed, {
+							type: 'error'
+						});
+						break;
+				}
 			}
 		});
 
