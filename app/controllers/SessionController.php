@@ -71,7 +71,7 @@ class SessionController extends BaseController {
 			//If the YSP Session is still around, load it up and return its data back to the user
 			if ( Cache::has( $sid ) ) {
 
-				$token = $this->get_token( Cache::get( $sid ) );
+				$token = $this->get_token( $sid );
 
 				return Response::json( $this->jsend( "success", array( "sid" => $sid, "session_id" => Cache::get( $sid ), "token" => $token ) ) );
 			}else {
