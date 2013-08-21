@@ -6,7 +6,6 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 			module_id: 'ChatModule',
 			constructor: function(callback) {
 				this.init();
-				NProgress.inc();
 				cb = callback;
 
 				chat = io.connect('https://chat.ysp.im:1337')
@@ -18,7 +17,6 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 					.on('reconnect', this.reconnect);
 			},
 			onConnect: function() {
-				NProgress.inc();
 				cb(); //Call the YSPController passed callback
 				room = base.telephonyModule.sid;
 				var mod_root = base.chatModule;
