@@ -5,7 +5,7 @@ class SessionController extends BaseController {
 	private $opentok;
 
     public function __construct(){
-    	$this->opentok = new 
+    	//$this->opentok = new 
     }
 
     public function create(){
