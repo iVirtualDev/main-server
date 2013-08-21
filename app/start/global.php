@@ -55,6 +55,10 @@ App::missing(function($exception){
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
+
+	if(Request::ajax()) {
+		return Response::json(array("status" => "error", "message" => "An uknown error has occured...", "code" => 1500));
+	}
 });
 
 /*
