@@ -42,6 +42,7 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 				mod_root.error('An error occured while communicating with the chat server', base.error_map.socket_error);
 			},
 			connectFailed: function() {
+				cb();
 				var mod_root = base.chatModule;
 				mod_root.error('Failed to connect to the chat server.', base.error_map.socket_connect_failed);
 				new notice(base.lang.socket_connect_failed, {
