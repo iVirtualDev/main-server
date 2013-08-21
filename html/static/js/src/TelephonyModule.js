@@ -6,7 +6,7 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 			constructor: function(callback) {
 				this.init();
 				var mod_root = this;
-				
+
 				async.series([
 					function(callback) {
 						mod_root.debug('Checking system requirements');
@@ -28,7 +28,9 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 
 					mod_root.debug('Telephony bootstrap completed successfully; setting up session.');
 
-					TB.addEventListener('exception', mod_root.handleException);
+					TB.addEventListener('exception', function(event){
+						mod_root.telephonyModule.error(event.message, event.code);
+					});
 
 					//Initialize the session
 					mod_root.session = TB.initSession(base.session_id);
@@ -88,9 +90,6 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 						return;
 					}
 				}
-			},
-			handleException: function(event) {
-				base.telephonyModule.error(event.message, event.code);
 			}
 		});
 
