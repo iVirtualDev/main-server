@@ -2,15 +2,17 @@
 
 class SessionController extends BaseController {
 
-	protected $opentok = 
+	private $opentok;
 
-    public function __construct()
-    {
-
+    public function __construct(){
+    	$this->opentok = new 
     }
 
-    public function getCreate(){
-
+    public function create(){
+    	return 'session.create';
     }
 
+    public function show($sid) {
+    	return 'session.show';
+    }
 }
