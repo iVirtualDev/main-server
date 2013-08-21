@@ -6,7 +6,7 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 			constructor: function(callback) {
 				this.init();
 				var mod_root = this,
-					sid = url("path").replace(/\//gi, "");
+					sid = base.sid;
 
 				async.series([
 					function(callback) {
@@ -20,47 +20,10 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 								msg: base.lang.outdated_browser
 							});
 						}
-					},
-					function(callback) {
-						mod_root.debug('Initializing session');
-						//Either start, or rejoin a session
-						if (sid === "") {
-							mod_root.ajax('/telephony/create_session', {
-								success: function(data) {
-									mod_root.session_id = data.session_id;
-									mod_root.sid = data.sid;
-									history.pushState(null, 'Your Second Phone', data.sid);
-									callback(null);
-								}
-							});
-						} else {
-							mod_root.ajax('/telephony/get_session/{1}'.assign(sid), {
-								success: function(data) {
-									mod_root.session_id = data.session_id;
-									mod_root.sid = sid;
-									callback(null);
-								},
-								fail: function() {
-									callback({
-										code: base.error_map.session_not_found,
-										msg: base.lang.session_not_found
-									});
-								}
-							});
-						}
-					},
-					function(callback) {
-						mod_root.debug('Getting session token');
-						//Retrieve a token for the session.
-						mod_root.ajax('/telephony/get_token/{1}'.assign(mod_root.sid), {
-							success: function(data) {
-								mod_root.token = data.token;
-								callback(null);
-							}
-						});
 					}
 				], function(err) {
 					if (err) {
+						callback(err);
 						mod_root.error(err.msg, err.code);
 						return;
 					}
@@ -70,7 +33,7 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 					TB.addEventListener('exception', mod_root.handleException);
 
 					//Initialize the session
-					mod_root.session = TB.initSession(mod_root.session_id);
+					mod_root.session = TB.initSession(base.session_id);
 
 					//Register events
 					mod_root.session.addEventListener('sessionConnected', mod_root.onConnect);
@@ -78,10 +41,10 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 					mod_root.session.addEventListener('streamDestroyed', mod_root.streamDestroyed);
 
 					//Connect to the session
-					mod_root.session.connect(mod_root.apiKey, mod_root.token);
+					mod_root.session.connect(mod_root.apiKey, base.token);
 
-					base.viewModule.set('sid', mod_root.sid);
-					base.viewModule.set('session_link', 'http://ysp.im/{1}'.assign(mod_root.sid));
+					base.viewModule.set('sid', base.sid);
+					base.viewModule.set('session_link', 'http://ysp.im/{1}'.assign(base.sid));
 
 					callback(null);
 				});

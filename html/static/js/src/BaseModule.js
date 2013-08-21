@@ -14,7 +14,7 @@ define(['stapes', 'underscore', 'notice'], function(Stapes, _, notice){
 		ajax: function(url, opts){
 			var mod_root = this;
 
-			opts = opts===undefined ? {} : opts;
+			opts = opts || {};
 			options = _.extend({
 				method:'get',
 				success: function(){
@@ -23,6 +23,9 @@ define(['stapes', 'underscore', 'notice'], function(Stapes, _, notice){
 				fail: function(){
 					log.error(base.appendTime('AJAX request failed due to sent data'));
 				},
+				error: function(msg, code){
+
+				}
 				data: {},
 			}, opts);
 
@@ -38,6 +41,7 @@ define(['stapes', 'underscore', 'notice'], function(Stapes, _, notice){
 						options.fail(response.data);
 						break;
 					case "error":
+						options.error(response.message, response.code);
 						mod_root.error(response.message, response.code);
 						break;
 					default:

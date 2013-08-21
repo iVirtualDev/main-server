@@ -1,5 +1,5 @@
-define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/FatalErrors', 'lang', 'async', 'underscore', 'notice'],
-	function(BaseModule, ChatModule, ViewModule, TelephonyModule, FatalErrors, lang, async, _, notice) {
+define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/FatalErrors', 'lang', 'async', 'underscore', 'notice', 'url'],
+	function(BaseModule, ChatModule, ViewModule, TelephonyModule, FatalErrors, lang, async, _, notice, url) {
 		var YSPController = BaseModule.subclass({
 			module_id: 'YSPController',
 			error_map: {
@@ -39,6 +39,7 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 				}
 			},
 			bootstrap: function() {
+				var mod_root = this;
 				this.debug('Bootstrapping...');
 				NProgress.start(); //Start NProgress loading bar.
 
@@ -47,6 +48,43 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 						NProgress.inc();
 
 						base.fatalErrors = new FatalErrors(callback);
+					},
+					function(callback) {
+						//Centralizing the retrieval of session data, with retries.
+						//now more robust
+						var tries = 0;
+						var sid = url("path").replace(/\//gi, "");
+
+						async.doWhilst(function(callback) {
+							tries++;
+							var url, opts = {
+								success: function(data){
+									mod_root.sid = data.sid;
+									mod_root.session_id = data.session_id;
+									mod_root.token = data.token;
+
+									callback(null);
+								},
+								fail: function(){
+									callback(null);
+								},
+								error: function(){
+									callback(null);
+								}
+							};
+
+							if(sid === ""){
+								url = "/session/create";
+							}else{
+								url = "/session/{1}".assign(sid);
+							}
+
+							mod_root.ajax(url, opts);
+						}, function() {
+							return (typeof base.sid === "undefined") || (tries < 3);
+						}, function(err) {
+							log.info('hmm...');
+						});
 					},
 					function(callback) {
 						NProgress.inc();
