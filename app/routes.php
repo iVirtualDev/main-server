@@ -132,7 +132,30 @@ Route::get('/static/js/lang.js', function(){
  * 
  */
 
+function generate_sid($length) {
+	$consonants = "bcdfghjklmnpqrstvwxyz";
+	$vowels = "aeiou";
+
+	$out = "";
+
+	for ($i=0; $i < $length; $i++) { 
+		switch($i%2) {
+			case 0:
+				$out += $consonants[mt_rand(0, 20)];
+				break;
+			default:
+				$out += $vowels[mt_rand(0, 4)]
+				break;
+		}
+	}
+
+	return $out;
+}
+
 Route::group(array('prefix' => 'session'), function(){
+
+	$opentok = new OpenTokSDK( API_Config::API_KEY, API_Config::API_SECRET );
+
 	Route::get('create', function(){
 		//If User's Session is already attached to an existing YSP Session, look for it in the Cache
 		if(Session::has('sid')){
@@ -140,6 +163,17 @@ Route::group(array('prefix' => 'session'), function(){
 
 			//If the YSP Session is still around, load it up and return its data back to the user
 			if(Cache::has($sid)){
+
+				$token = "";
+
+				if(Session::has("token_{$sid}")){
+					$token = Session::get("token_{$sid}");
+				}else{
+					global $opentok;
+					$token = $opentok->generate_token(Cache::get($sid));
+					Session::put("token_{$sid}", $token);
+				}
+
 				return Response::json(jsend("success", array("sid" => $sid, "session_id" => Cache::get($sid))));
 			}else{
 
@@ -149,7 +183,7 @@ Route::group(array('prefix' => 'session'), function(){
 		}
 
 		//Establish a new OpenTok SDK Instance
-		$opentok = new OpenTokSDK( API_Config::API_KEY, API_Config::API_SECRET );
+		global $opentok;
 
 		//Create a new session, pass the users IP address in so OpenTok can have a clue where to establish the
 		//session in its global network, and then enable P2P
@@ -164,7 +198,7 @@ Route::group(array('prefix' => 'session'), function(){
 		$session_id = $session->getSessionId();
 
 		//Generate a random SID that will be used to identify sessions on YSP
-		$sid = str_random(8);
+		$sid = generate_sid(8);
 
 		//All sids need to be unique, the likelihood of to sids being the same is so very slim, but I don't know, I guess I'm just superstitious :/
 		//So while the Cache has the sid already generate a new one; repeat until unique!
