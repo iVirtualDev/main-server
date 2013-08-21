@@ -46,6 +46,8 @@ class SessionController extends BaseController {
     }
 
     public function create(){
+    	return $this->generate_sid(10);
+
     	//If User's Session is already attached to an existing YSP Session, look for it in the Cache
     	if(Session::has('sid')){
     		$sid = Session::get('sid');
