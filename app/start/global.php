@@ -57,7 +57,7 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 
 	if(Request::ajax()) {
-		return Response::json(array("status" => "error", "message" => "An uknown error has occured...", "code" => 1500));
+		return Response::json(array("status" => "error", "message" => "A Fatal Server Error has been Encountered", "code" => 1500));
 	}
 });
 
