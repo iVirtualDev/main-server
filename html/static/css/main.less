@@ -2,6 +2,7 @@
 @sec: #27ae60;
 @grey: #ecf0f1;
 @dark_grey: #696969;
+@blue: #2ba6cb;
 @global_radius: 5px;
 
 
@@ -91,6 +92,21 @@ body {
 	}
 
 	&#main {
+		#nprogress {
+			.bar {
+				background: @blue;
+			}
+
+			.peg {
+				box-shadow: 0 0 10px @blue, 0 0 5px @blue;
+			}
+
+			.spinner-icon {
+				border-top-color: @blue;
+				border-left-color: @blue;
+			}
+		}
+
 		div#main_panel {
 			header {
 				div#session_link_hold {
