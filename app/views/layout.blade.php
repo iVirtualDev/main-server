@@ -40,8 +40,8 @@ Hosted at (mt) MediaTemple in Los Angeles, California, USA
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Aldrich">
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css">
         <link rel="stylesheet" href="/static/css/animate.min.css">
+        @yield('css')
         <link rel="stylesheet" href="/static/css/main.css">
-		@yield('css')
     </head>
     <body id="{{ $page_id }}">
 		<div class="row">
