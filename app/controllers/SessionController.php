@@ -8,25 +8,25 @@ class SessionController extends BaseController {
     	$this->opentok = new OpenTokSDK( API_Config::API_KEY, API_Config::API_SECRET );
     }
 
-    private function generate_sid($length){
-    	$consonants = "bcdfghjklmnpqrstvwxyz";
-    	$vowels = "aeiou";
+    private function generate_sid( $length ) {
+		$consonants = "bcdfghjklmnpqrstvwxyz";
+		$vowels = "aeiou";
 
-    	$out = "";
+		$out = "";
 
-    	for ($i=0; $i < $length; $i++) { 
-    		switch($i%2) {
-    			case 0:
-    				$out += $consonants[mt_rand(0, 20)];
-    				break;
-    			default:
-    				$out += $vowels[mt_rand(0, 4)];
-    				break;
-    		}
-    	}
+		for ( $i = 0; $i < $length; $i++ ) {
+			switch ( $i%2 ) {
+			case 0:
+				$out .= $consonants[mt_rand( 0, 20 )];
+				break;
+			default:
+				$out .= $vowels[mt_rand( 0, 4 )];
+				break;
+			}
+		}
 
-    	return $out;
-    }
+		return $out;
+	}
 
     private function jsend($status, $data = array(), $message = "Unknown Error", $code = 301){
     	$out = array();
@@ -46,8 +46,6 @@ class SessionController extends BaseController {
     }
 
     public function create(){
-    	return $this->generate_sid(10);
-
     	//If User's Session is already attached to an existing YSP Session, look for it in the Cache
     	if(Session::has('sid')){
     		$sid = Session::get('sid');
