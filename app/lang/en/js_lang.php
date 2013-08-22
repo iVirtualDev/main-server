@@ -31,7 +31,9 @@ return array(
         'tb_report_issue_failure' => 'Report Issue Failure'
     ),
 	'ui' => array(
-		
+		'other_party_left' => 'The other person left the chat.',
+        'socket_disconnect' => 'Connection to the chat server was lost.',
+        'socket_reconnect' => 'Chat server was reconnected!'
 	),
     'session_full' => 'This session is full',
     'global_ajax_error' => 'Failed to communicate with server',

@@ -48,13 +48,13 @@ define(['BaseModule', 'BaseException', 'socket', 'notice', 'url', 'src/MessageCl
 			},
 			disconnect: function() {
 				base.chatModule.debug('Lost connection to chat server; attempting to reconnect...');
-				new notice(base.lang.socket_disconnect, {
+				new notice(ysp_lang.ui.socket_disconnect, {
 					type: 'error'
 				});
 			},
 			reconnect: function() {
 				base.chatModule.debug('Connecting to chat server was reconnected!');
-				new notice(base.lang.socket_reconnect, {
+				new notice(ysp_lang.ui.socket_reconnect, {
 					type: 'success'
 				});
 			},

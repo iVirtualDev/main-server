@@ -67,7 +67,7 @@ define(['opentok', 'BaseModule', 'BaseException', 'url', 'async', 'notice'],
 			streamDestroyed: function() {
 				var mod_root = base.telephonyModule;
 				mod_root.debug('A stream was un-published from this session; processing now...')
-				new notice(base.lang.other_party_left, {
+				new notice(ysp_lang.ui.other_party_left, {
 					type: 'info'
 				});
 			},

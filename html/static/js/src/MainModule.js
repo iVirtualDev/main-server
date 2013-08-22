@@ -6,7 +6,6 @@ define(['BaseModule', 'BaseException', 'src/ChatModule', 'src/ViewModule', 'src/
 			timestamp_fmt: "{HH}:{mm}:{ss}",
 			constructor: function() {
 				base = this;
-				base.lang = lang; //Set up language object
 				this.init();
 
 				if ($('#ad').height() === 0) {
