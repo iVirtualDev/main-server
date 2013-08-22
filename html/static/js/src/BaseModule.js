@@ -1,4 +1,4 @@
-define(['stapes', 'underscore', 'notice', 'overload'], function(Stapes, _, notice, overload) {
+define(['stapes', 'underscore', 'notice', 'BaseException'], function(Stapes, _, notice, BaseException) {
 	var BaseModule = Stapes.subclass({
 		watchFor: [],
 		/**

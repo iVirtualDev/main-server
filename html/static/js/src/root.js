@@ -27,9 +27,6 @@ require.config({
 		},
 		'opentok': {
 			exports: 'TB'
-		},
-		'BaseModule': {
-			deps: ['BaseException']
 		}
 	}
 });
