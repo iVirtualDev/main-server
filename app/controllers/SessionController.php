@@ -46,21 +46,18 @@ class SessionController extends BaseController {
 		return $out;
 	}
 
-	private function jsend( $status, $data = array(), $message = "Unknown Error", $code = 301 ) {
+	private function jsend( $status, $data = array(), $message = "Unknown Error", $code = 11106 ) {
 		$out = array();
-		if ( in_array( $status, array( "fail", "error", "success" ) ) ) {
-			$out["status"] = $status;
-			if ( $status == "error" ) {
-				$out["code"] = $code;
-				$out["message"] = $message;
-			}else {
-				$out["data"] = $data;
-			}
-
-			return $out;
+		
+		$out["status"] = $status;
+		if ( $status == "error" ) {
+			$out["code"] = $code;
+			$out["message"] = $message;
 		}else {
-			throw new Exception( "Invalid JSend Status", 105 );
+			$out["data"] = $data;
 		}
+
+		return $out;
 	}
 
 	public function create() {
@@ -127,10 +124,10 @@ class SessionController extends BaseController {
 			}else {
 				//Cache doesn't remember? Flush the User's session to prevent referencing errors n such, tell the user the bad news
 				Session::flush();
-				return Response::json( $this->jsend( "fail", array( "code" => 1404 ) ) );
+				return Response::json( $this->jsend( "fail", array( "code" => 11101 ) ) );
 			}
 		} else {
-			return Response::json( $this->jsend( "fail", array( "code" => 400, "Invalid SID" ) ) );
+			return Response::json( $this->jsend( "fail", array( "code" => 1005 ) ) );
 		}
 	}
 }
