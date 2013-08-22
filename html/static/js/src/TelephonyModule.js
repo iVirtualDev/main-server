@@ -1,5 +1,5 @@
-define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
-	function(TB, BaseModule, url, async, notice) {
+define(['opentok', 'BaseModule', 'BaseException', 'url', 'async', 'notice'],
+	function(TB, BaseModule, BaseException, url, async, notice) {
 		var TelephonyModule = BaseModule.subclass({
 			module_id: 'TelephonyModule',
 			apiKey: '26350302',

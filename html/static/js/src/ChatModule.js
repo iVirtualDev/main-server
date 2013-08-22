@@ -1,5 +1,5 @@
-define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
-	function(BaseModule, socket, notice, url, Message) {
+define(['BaseModule', 'BaseException', 'socket', 'notice', 'url', 'src/MessageClass'],
+	function(BaseModule, BaseException, socket, notice, url, Message) {
 		var chat, room, cb;
 
 		var ChatModule = BaseModule.subclass({
