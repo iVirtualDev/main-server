@@ -112,20 +112,20 @@ define(['BaseModule', 'src/BaseException', 'src/ChatModule', 'src/ViewModule', '
 
 					NProgress.done();
 				});
-			}
-		},
-		handleError: function(exception){
-			switch(exception.code){
-				case 11204:
-					new notice("<i class=\"icon-frown icon-3x pull-left\"></i>{1}".assign(exception.message), {
-						type: 'error',
-						onclick: function() {
-							return false;
-						},
-						timeout: false
-					});
+			},
+			handleError: function(exception){
+				switch(exception.code){
+					case 11204:
+						new notice("<i class=\"icon-frown icon-3x pull-left\"></i>{1}".assign(exception.message), {
+							type: 'error',
+							onclick: function() {
+								return false;
+							},
+							timeout: false
+						});
 
-					break;
+						break;
+				}
 			}
 		});
 
