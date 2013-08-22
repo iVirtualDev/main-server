@@ -1,7 +1,7 @@
 define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/FatalErrors', 'lang', 'async', 'underscore', 'notice', 'url'],
 	function(BaseModule, ChatModule, ViewModule, TelephonyModule, FatalErrors, lang, async, _, notice, url) {
-		var YSPController = BaseModule.subclass({
-			module_id: 'YSPController',
+		var MainModule = BaseModule.subclass({
+			module_id: 'MainModule',
 			error_map: {
 				session_not_found: 5001,
 				global_ajax_error: 5002,
@@ -117,6 +117,7 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 				}
 
 				async.series(startup_sequence, function(err) {
+					log.debug('')
 					if (err instanceof BaseException) {
 						mod_root.error(err);
 					}
@@ -126,5 +127,5 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 			}
 		});
 
-		return YSPController;
+		return MainModule;
 	});

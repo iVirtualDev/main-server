@@ -30,7 +30,7 @@ require.config({
 	}
 });
 
-require(['src/YSPController', 'lang'], function(YSPController, lang) {
+require(['src/MainModule', 'lang'], function(MainModule, lang) {
 	window.ysp_lang = lang;
 	window.ysp_errors = {
 		11101: ysp_lang.errors.session_not_found,
@@ -62,5 +62,5 @@ require(['src/YSPController', 'lang'], function(YSPController, lang) {
 		2010: ysp_lang.errors.tb_report_issue_failure
 	};
 
-	window.controller = new YSPController();
+	window.controller = new MainModule();
 });
