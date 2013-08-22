@@ -1,5 +1,5 @@
-define(['BaseModule', 'BaseException', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/FatalErrors', 'lang', 'async', 'underscore', 'notice'],
-	function(BaseModule, BaseException, ChatModule, ViewModule, TelephonyModule, FatalErrors, lang, async, _, notice) {
+define(['BaseModule', 'BaseException', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/SoundModule', 'src/FatalErrors', 'lang', 'async', 'underscore', 'notice'],
+	function(BaseModule, BaseException, ChatModule, ViewModule, TelephonyModule, SoundModule, FatalErrors, lang, async, _, notice) {
 		var MainModule = BaseModule.subclass({
 			module_id: 'MainModule',
 			watchFor: [11204],
@@ -24,6 +24,11 @@ define(['BaseModule', 'BaseException', 'src/ChatModule', 'src/ViewModule', 'src/
 				NProgress.start(); //Start NProgress loading bar.
 
 				var startup_sequence = [
+					function(callback) {
+						NProgress.inc();
+
+						base.soundModule = new SoundModule(callback);
+					},
 					function(callback) {
 						NProgress.inc();
 
