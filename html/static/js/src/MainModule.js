@@ -1,15 +1,8 @@
-define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/FatalErrors', 'lang', 'async', 'underscore', 'notice', 'url'],
-	function(BaseModule, ChatModule, ViewModule, TelephonyModule, FatalErrors, lang, async, _, notice, url) {
+define(['BaseModule', 'src/BaseException', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/FatalErrors', 'lang', 'async', 'underscore', 'notice'],
+	function(BaseModule, BaseException, ChatModule, ViewModule, TelephonyModule, FatalErrors, lang, async, _, notice) {
 		var MainModule = BaseModule.subclass({
 			module_id: 'MainModule',
-			error_map: {
-				session_not_found: 5001,
-				global_ajax_error: 5002,
-				outdated_browser: 5003,
-				socket_error: 4009,
-				socket_connect_failed: 4010,
-				user_is_blocking_ads: 4030
-			},
+			watchFor: [11204],
 			timestamp_fmt: "{HH}:{mm}:{ss}",
 			constructor: function() {
 				base = this;
@@ -17,14 +10,6 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 				this.init();
 
 				if ($('#ad').height() === 0) {
-					new notice("<i class=\"icon-frown icon-3x pull-left\"></i>{1}".assign(ysp_errors[11204]), {
-						type: 'error',
-						onclick: function() {
-							return false;
-						},
-						timeout: false
-					});
-
 					base.error(new BaseException(11204));
 				}
 
@@ -127,6 +112,20 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 
 					NProgress.done();
 				});
+			}
+		},
+		handleError: function(exception){
+			switch(exception.code){
+				case 11204:
+					new notice("<i class=\"icon-frown icon-3x pull-left\"></i>{1}".assign(exception.message), {
+						type: 'error',
+						onclick: function() {
+							return false;
+						},
+						timeout: false
+					});
+
+					break;
 			}
 		});
 
