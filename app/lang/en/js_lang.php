@@ -33,7 +33,8 @@ return array(
 	'ui' => array(
 		'other_party_left' => 'The other person left the chat.',
         'socket_disconnect' => 'Connection to the chat server was lost.',
-        'socket_reconnect' => 'Chat server was reconnected!'
+        'socket_reconnect' => 'Chat server was reconnected!',
+        'chat_unavailable' => 'Chat is unavailabe right now...'
 	),
     'session_full' => 'This session is full',
     'global_ajax_error' => 'Failed to communicate with server',

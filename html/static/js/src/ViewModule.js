@@ -9,7 +9,8 @@ define(['Ractive', 'rv!/static/templates/view.html', 'url', 'src/MessageClass'],
 			fatalError: false,
 			fatal_error_message: 'Unknown Error!',
 			messages: [],
-			chat_available: true
+			chat_available: true,
+			lang_chat_unavailable: ysp_lang.ui.chat_unavailable
 		},
 		init: function(callback) {
 			this.dbug('coming online...');
