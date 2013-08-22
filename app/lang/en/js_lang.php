@@ -2,6 +2,7 @@
 
 return array(
     'errors' => array(
+        'unknown_error' => 'Unknown Error',
         'session_not_found' => 'Session was not found. It may have expired.',
         'global_ajax_error' => 'Failed to communicate with server.',
         'outdated_browser' => 'Please upgrade or install the latest version of Chrome or Firefox',
@@ -28,6 +29,9 @@ return array(
         'tb_internal_error' => 'Internal Error',
         'tb_report_issue_failure' => 'Report Issue Failure'
     ),
+	'ui' => array(
+		
+	),
     'session_full' => 'This session is full',
     'global_ajax_error' => 'Failed to communicate with server',
     'outdated_browser' => 'Please upgrade or install the latest version of Chrome or Firefox',
