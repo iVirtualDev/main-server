@@ -15,7 +15,7 @@ return array(
         'tb_auth_error' => 'Video Chat: Authentication error',
         'tb_invalid_session_id' => 'Video Chat: Invalid Session ID',
         'tb_connect_failed' => 'Video Chat: Connect Failed',
-        'tb_connect_rejected' => 'Video Chat: Connect Rejected',
+        'tb_connect_rejected' => 'Session is full.',
         'tb_connect_timeout' => 'Video Chat: Connect Time-out',
         'tb_security_error' => 'Video Chat: Security Error',
         'tb_not_connected' => 'Video Chat: Not Connected',
@@ -27,7 +27,7 @@ return array(
         'tb_unable_to_force_disconnect' => 'Video Chat: Unable to Force Disconnect',
         'tb_unable_to_force_unpublish' => 'Video Chat: Unable to Force Unpublish',
         'tb_force_unpublish_on_invalid_stream' => 'Video Chat: Force Unpublish on Invalid Stream',
-        'tb_internal_error' => 'Internal Error',
+        'tb_internal_error' => 'Your Second Phone needs access to your camera and microphone.',
         'tb_report_issue_failure' => 'Report Issue Failure'
     ),
 	'ui' => array(
