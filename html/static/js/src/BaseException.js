@@ -1,5 +1,5 @@
 define(['stapes'], function(Stapes){
-	window.BaseException = Stapes.subclass({
+	BaseException = Stapes.subclass({
 		constructor: function(code, msg) {
 			this.message = msg || ((ysp_errors.hasOwnProperty(code)) ? ysp_errors[code] : ysp_lang.errors.unknown_error);
 			this.code = code;
@@ -7,5 +7,5 @@ define(['stapes'], function(Stapes){
 		}
 	}, true);
 
-	return window.BaseException;
+	return BaseException;
 });

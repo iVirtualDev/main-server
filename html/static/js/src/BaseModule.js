@@ -1,6 +1,4 @@
 define(['stapes', 'underscore', 'notice', 'overload', 'src/BaseException'], function(Stapes, _, notice, overload, BaseException) {
-	log.info(this);
-
 	var BaseModule = Stapes.subclass({
 		watchFor: [],
 		/**
@@ -83,10 +81,6 @@ define(['stapes', 'underscore', 'notice', 'overload', 'src/BaseException'], func
 			var mod_root = this;
 			mod_root.debug("coming online...");
 			base.on('error', (mod_root.errorFilter).bind(mod_root));
-
-			window.x = new BaseException;
-
-			log.info(x);
 		},
 		debug: function() {
 			var stamp = "{1} - {2}: ".assign(Date.create().format("{HH}:{mm}:{ss}"), this.module_id);
