@@ -5,7 +5,9 @@ define(['BaseModule', 'BaseException'], function(BaseModule, BaseException){
 			this.init();
 			callback(null);
 
-			
+
 		}
 	});
+
+	return SoundModule;
 });
