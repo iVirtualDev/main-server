@@ -73,6 +73,7 @@ define(['BaseModule', 'BaseException', 'src/ChatModule', 'src/ViewModule', 'src/
 							} else {
 								base.viewModule.set('sid', base.sid);
 								base.viewModule.set('session_link', "http://ysp.im/{1}".assign(base.sid));
+								history.pushState(null, 'Your Second Phone', base.sid);
 								callback(null);
 							}
 						});
