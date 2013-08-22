@@ -57,7 +57,7 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 
 	if(Request::ajax()) {
-		return Response::json(array("status" => "error", "message" => "A Fatal Server Error has been Encountered", "code" => 1500));
+		return Response::json(array("status" => "error", "message" => Lang::get('js_lang.errors.global_ajax_error'), "code" => 11102));
 	}
 });
 
