@@ -16,8 +16,8 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 				base.lang = lang; //Set up language object
 				this.init();
 
-				if ($('#ad').height() == 0) {
-					new notice("<i class=\"icon-frown icon-3x pull-left\"></i>Please don't hide the ads.", {
+				if ($('#ad').height() === 0) {
+					new notice("<i class=\"icon-frown icon-3x pull-left\"></i>{1}".assign(ysp_errors[11204]), {
 						type: 'error',
 						onclick: function() {
 							return false;
@@ -25,12 +25,8 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 						timeout: false
 					});
 
-					this.error('User is blocking advertisements', base.error_map.user_is_blocking_ads);
+					base.error(new BaseException(11204));
 				}
-
-				$(document).ajaxError(function() {
-					base.error(base.lang.global_ajax_error, base.error_map.global_ajax_error);
-				});
 
 				if (typeof $('#noaccount')[0] != "undefined") {
 					document.getElementById('bootstrap').onclick = (base.bootstrap).bind(base);
@@ -57,59 +53,39 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 						base.viewModule.on('session_link_hover', base.viewModule.session_link_hover);
 					},
 					function(callback) {
-						//Centralizing the retrieval of session data, with retries.
-						//now more robust
-						var tries = 0;
-						var sid = url("path").replace(/\//gi, "");
+						async.series([
+							function(callback) {
+								var sid = window.location.pathname.replace(/[^a-z]/g, "");
+								var resource, opts = {
+										success: function(data) {
+											mod_root.sid = data.sid;
+											mod_root.session_id = data.session_id;
+											mod_root.token = data.token;
+										},
+										fail: function(data) {
+											callback(new BaseException(data.code));
+										},
+										error: function(data) {
+											callback(new BaseException(data.code, data.message));
+										}
+									};
 
-						async.doWhilst(function(callback) {
-							tries++;
-							var url, opts = {
-									success: function(data) {
-										mod_root.sid = data.sid;
-										mod_root.session_id = data.session_id;
-										mod_root.token = data.token;
+								if (sid === "") {
+									resource = "/session/create";
+								} else {
+									resource = "/session/{1}".assign(sid);
+								}
 
-										callback(null);
-									},
-									fail: function() {
-										callback(null);
-									},
-									error: function() {
-										callback(null);
-									}
-								};
+								mod_root.ajax(resource, opts);
+							}
+						], function(err) {
+							NProgress.inc();
 
-							if (sid === "") {
-								url = "/session/create";
+							if (err instanceof BaseException) {
+								callback(err);
 							} else {
-								url = "/session/{1}".assign(sid);
-								opts.fail = function(data){
-									if(data.code === 1404) {
-										callback({
-											msg: base.lang.session_not_found,
-											code: base.error_map.session_not_found
-										});
-									}
-								};
+								callback(null);
 							}
-
-							mod_root.ajax(url, opts);
-						}, function() {
-							return (typeof base.sid === "undefined") || (tries < 3);
-						}, function(err) {
-							if(typeof base.sid === "undefined" || err) {
-								var m = err.msg || base.lang.global_ajax_error;
-								var c = err.code || base.error_map.global_ajax_error;
-								mod_root.error(m, c);
-								return;
-							}
-
-							base.viewModule.set('sid', base.sid);
-							base.viewModule.set('session_link', "http://ysp.im/{1}".assign(base.sid));
-							history.pushState(null, 'Your Second Phone', base.sid);
-
-							callback(null);
 						});
 					},
 					function(callback) {
@@ -141,6 +117,10 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 				}
 
 				async.series(startup_sequence, function(err) {
+					if (err instanceof BaseException) {
+						mod_root.error(err);
+					}
+
 					NProgress.done();
 				});
 			}

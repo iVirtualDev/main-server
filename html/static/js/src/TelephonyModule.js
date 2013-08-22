@@ -14,22 +14,20 @@ define(['opentok', 'BaseModule', 'url', 'async', 'notice'],
 							mod_root.debug('Hooray! Browser is equipped to make video chat calls!');
 							callback(null);
 						} else {
-							callback({
-								code: base.error_map.outdated_browser,
-								msg: base.lang.outdated_browser
-							});
+							callback(new BaseException(11103));
 						}
 					}
 				], function(err) {
-					if (err) {
-						mod_root.error(err.msg, err.code);
+					if (err instanceof BaseException) {
+						mod_root.error(err);
 						return;
 					}
 
 					mod_root.debug('Telephony bootstrap completed successfully; setting up session.');
 
-					TB.addEventListener('exception', function(event){
-						mod_root.telephonyModule.error(event.message, event.code);
+					TB.addEventListener('exception', function(event) {
+						mod_root.error(new BaseException(event.code));
+						mod_root.debug(event);
 					});
 
 					//Initialize the session

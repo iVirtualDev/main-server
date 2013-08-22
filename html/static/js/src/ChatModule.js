@@ -4,9 +4,9 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 
 		var ChatModule = BaseModule.subclass({
 			module_id: 'ChatModule',
+			watchFor: [13201, 13202],
 			constructor: function(callback) {
 				this.init();
-				this.subscribedCodes = [base.error_map.socket_error, base.error_map.socket_connect_failed];
 				cb = callback;
 
 				chat = io.connect('https://chat.ysp.im:1337')
@@ -30,7 +30,7 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 					room: room,
 					msg: msg
 				});
-				base.viewModule.publishMessage(new Message('sent', msg))
+				base.viewModule.publishMessage(new Message('sent', msg));
 			}).debounce(200),
 			onMsg: function(msg) {
 				base.chatModule.debug('Received message: {1}'.assign(msg));
@@ -39,12 +39,12 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 			onError: function() {
 				cb(null);
 				var mod_root = base.chatModule;
-				mod_root.error('An error occured while communicating with the chat server', base.error_map.socket_error);
+				mod_root.error(new BaseException(13201));
 			},
 			connectFailed: function() {
 				cb(null);
 				var mod_root = base.chatModule;
-				mod_root.error('Failed to connect to the chat server.', base.error_map.socket_connect_failed);
+				mod_root.error(new BaseException(13202));
 			},
 			disconnect: function() {
 				base.chatModule.debug('Lost connection to chat server; attempting to reconnect...');
@@ -58,17 +58,9 @@ define(['BaseModule', 'socket', 'notice', 'url', 'src/MessageClass'],
 					type: 'success'
 				});
 			},
-			handleError: function(event) {
-				switch (event.code) {
-					case base.error_map.socket_connect_failed:
-					case base.error_map.socket_error:
-						//Hide the chat, because its kinda useless :/
-						base.viewModule.set('chat_available', false);
-						new notice(base.lang.socket_connect_failed, {
-							type: 'error'
-						});
-						break;
-				}
+			handleError: function(exception) {
+				base.viewModule.set('chat_available', false);
+				new notice(exception.message, {type:"error"});
 			}
 		});
 

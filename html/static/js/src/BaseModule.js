@@ -1,6 +1,6 @@
-define(['stapes', 'underscore', 'notice'], function(Stapes, _, notice) {
+define(['stapes', 'underscore', 'notice', 'overload', 'src/BaseException'], function(Stapes, _, notice, overload, BaseException) {
 	var BaseModule = Stapes.subclass({
-		subscribedCodes: [],
+		watchFor: [],
 		/**
 		 * Base AJAX function
 		 * This function is availabe in all modules (except views), and is used to launch HTTP requests to a server and recieve
@@ -17,15 +17,9 @@ define(['stapes', 'underscore', 'notice'], function(Stapes, _, notice) {
 			opts = opts || {};
 			options = _.extend({
 				method: 'get',
-				success: function() {
-					log.info(base.appendTime('AJAX request completed successfully'));
-				},
-				fail: function() {
-					log.error(base.appendTime('AJAX request failed due to sent data'));
-				},
-				error: function(msg, code) {
-
-				},
+				success: function() {},
+				fail: function() {},
+				error: function() {},
 				data: {},
 			}, opts);
 
@@ -42,10 +36,11 @@ define(['stapes', 'underscore', 'notice'], function(Stapes, _, notice) {
 						break;
 					case "error":
 						options.error(response.message, response.code);
-						mod_root.error(response.message, response.code);
+						mod_root.error(new BaseException(response.code, response.msg));
 						break;
 					default:
-						log.warn('Non JSend-compliant AJAX response received!', response);
+						mod_root.error(new BaseException(11107));
+						mod_root.debug('bad response: ', response);
 						break;
 				}
 			});
@@ -63,15 +58,19 @@ define(['stapes', 'underscore', 'notice'], function(Stapes, _, notice) {
 		 *
 		 * @return {undefined}
 		 */
-		error: function(msg, code) {
-			base.emit('error', {
-				message: msg,
-				code: code
-			});
-			log.error("{1} - {2}: ({3}) {4}".assign(Date.create().format(this.timestamp_fmt), this.module_id, code, msg));
+		error: function(e) {
+			var mod_root = this;
+			if (!e instanceof BaseException) {
+				log.error("Use new BaseException based error reporting!");
+				log.error(mod_root, arguments);
+				return;
+			}
 
-			//Push all errors to Google Analyitcs
-			_gaq.push(['_trackEvent', '{1} Error'.assign(this.module_id), code, msg]);
+			if (typeof base !== "undefined") {
+				base.emit('error', e);
+			}
+
+			log.error("{1} - {2}: ({3}) {4}".assign(e.timestamp.format(mod_root.timestamp_fmt), mod_root.module_id, e.code, e.message));
 		},
 		/**
 		 * Global Initialization Function
@@ -89,15 +88,15 @@ define(['stapes', 'underscore', 'notice'], function(Stapes, _, notice) {
 			args.unshift(stamp);
 			log.debug.apply(null, args);
 		},
-		errorFilter: function(event) {
+		errorFilter: function(exception) {
 			var mod_root = this;
 			mod_root.debug('Error filter activated');
 
-			if (_.contains(mod_root.subscribedCodes, event.code)) {
-				mod_root.handleError(event);
+			if (_.contains(mod_root.watchFor, exception.code)) {
+				mod_root.handleError(exception);
 			}
 		},
-		handleError: function(event) {
+		handleError: function(exception) {
 			this.debug('Error handler activated');
 		}
 	});
