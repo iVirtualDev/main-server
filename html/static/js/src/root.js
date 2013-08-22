@@ -29,6 +29,34 @@ require.config({
 	}
 });
 
-require(['src/YSPController'], function(YSPController) {
+require(['src/YSPController', 'lang'], function(YSPController, lang) {
+	window.ysp_errors = {
+		11101: lang.errors.session_not_found,
+		11102: lang.errors.global_ajax_error,
+		11103: lang.errors.outdated_browser,
+		11204: lang.errors.dont_block_ads,
+		11105: lang.errors.session_retrieval_error,
+		13201: lang.errors.general_socket_error,
+		13202: lang.errors.chat_connection_failed,
+		1000: lang.errors.tb_load_failed,
+		1004: lang.errors.tb_auth_error,
+		1005: lang.errors.tb_invalid_session_id,
+		1006: lang.errors.tb_connect_failed,
+		1007: lang.errors.tb_connect_rejected,
+		1008: lang.errors.tb_connect_timeout,
+		1009: lang.errors.tb_security_error,
+		1010: lang.errors.tb_not_connected,
+		1011: lang.errors.tb_invalid_param,
+		1013: lang.errors.tb_connection_failed,
+		1014: lang.errors.tb_api_response_fail,
+		1500: lang.errors.tb_unable_to_publish,
+		1510: lang.errors.tb_unable_to_signal,
+		1520: lang.errors.tb_unable_to_force_disconnect,
+		1530: lang.errors.tb_unable_to_force_unpublish,
+		1535: lang.errors.tb_force_unpublish_on_invalid_stream,
+		2000: lang.errors.tb_internal_error,
+		2010: lang.errors.tb_report_issue_failure
+	};
+
 	window.controller = new YSPController();
 });
