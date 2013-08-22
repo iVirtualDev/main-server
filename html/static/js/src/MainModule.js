@@ -61,6 +61,8 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 											mod_root.sid = data.sid;
 											mod_root.session_id = data.session_id;
 											mod_root.token = data.token;
+
+											callback(null);
 										},
 										fail: function(data) {
 											callback(new BaseException(data.code));
@@ -117,7 +119,8 @@ define(['BaseModule', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule',
 				}
 
 				async.series(startup_sequence, function(err) {
-					log.debug('')
+					log.debug('Bootstrapping sequence has completed...');
+
 					if (err instanceof BaseException) {
 						mod_root.error(err);
 					}
