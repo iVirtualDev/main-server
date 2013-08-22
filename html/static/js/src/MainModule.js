@@ -71,6 +71,8 @@ define(['BaseModule', 'BaseException', 'src/ChatModule', 'src/ViewModule', 'src/
 							if (err instanceof BaseException) {
 								callback(err);
 							} else {
+								base.viewModule.set('sid', base.sid);
+								base.viewModule.set('session_link', "http://ysp.im/{1}".assign(base.sid));
 								callback(null);
 							}
 						});
