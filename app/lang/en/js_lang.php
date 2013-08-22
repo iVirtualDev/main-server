@@ -26,7 +26,7 @@ return array(
         'tb_unable_to_force_unpublish' => 'Video Chat: Unable to Force Unpublish',
         'tb_force_unpublish_on_invalid_stream' => 'Video Chat: Force Unpublish on Invalid Stream',
         'tb_internal_error' => 'Internal Error',
-        'tb_report_issue_failure' => Report Issue Failure
+        'tb_report_issue_failure' => 'Report Issue Failure'
     ),
     'session_full' => 'This session is full',
     'global_ajax_error' => 'Failed to communicate with server',
