@@ -71,6 +71,10 @@ define(['stapes', 'underscore', 'notice', 'BaseException'], function(Stapes, _, 
 			}
 
 			log.error("{1} - {2}: ({3}) {4}".assign(e.timestamp.format(mod_root.timestamp_fmt), mod_root.module_id, e.code, e.message));
+
+			if(typeof _gaq !== "undefined"){
+				_gaq.push(['_trackEvent', mod_root.module_id, 'Error', e.message, e.code]);
+			}
 		},
 		/**
 		 * Global Initialization Function
