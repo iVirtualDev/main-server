@@ -3,6 +3,7 @@
 return array(
     'errors' => array(
         'unknown_error' => 'Unknown Error',
+        'non_jsend_compliance' => 'A non JSend-compliant response was received.',
         'session_not_found' => 'Session was not found. It may have expired.',
         'global_ajax_error' => 'Failed to communicate with server.',
         'outdated_browser' => 'Please upgrade or install the latest version of Chrome or Firefox',
