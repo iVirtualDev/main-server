@@ -21,6 +21,6 @@
 		<script src="/static/js/plugin/webrtc_adapter.js"></script>
 		<script src="/static/js/lib/loglevel.min.js"></script>
 		<script src="/static/bower_components/nprogress/nprogress.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.8/require.min.js" data-main="/static/js/src/root.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.8/require.min.js" data-main="/static/js/root.js"></script>
 	@endif
 @stop
