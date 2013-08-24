@@ -4,8 +4,6 @@ define(['BaseModule', 'BaseException'], function(BaseModule, BaseException){
 		constructor: function(callback){
 			this.init();
 			callback(null);
-
-			$(document.body).append();
 		}
 	});
 
