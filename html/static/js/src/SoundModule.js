@@ -3,6 +3,7 @@ define(['BaseModule', 'BaseException'], function(BaseModule, BaseException){
 
 	join = new Audio('/static/audio/join.mp3');
 	leave = new Audio('/static/audio/leave.mp3');
+	error = new Audio('/static/audio/error.mp3');
 
 	var stop = function stopFn(snd){
 		snd.pause();
@@ -11,6 +12,7 @@ define(['BaseModule', 'BaseException'], function(BaseModule, BaseException){
 	var stopAll = function stopAllFn(){
 		stop(join);
 		stop(leave);
+		stop(error);
 	}
 
 	var SoundModule = BaseModule.subclass({
@@ -33,6 +35,7 @@ define(['BaseModule', 'BaseException'], function(BaseModule, BaseException){
 				case "message":
 					break;
 				case "error":
+					error.play();
 					break;
 			}
 		}
