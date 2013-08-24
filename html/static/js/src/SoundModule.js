@@ -5,7 +5,7 @@ define(['BaseModule', 'BaseException'], function(BaseModule, BaseException){
 			this.init();
 			callback(null);
 
-
+			$(document.body).append();
 		}
 	});
 
