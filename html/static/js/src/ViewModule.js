@@ -1,4 +1,4 @@
-define(['Ractive', 'rv!/static/templates/view.html', 'url', 'src/MessageClass'], function(Ractive, template, url, Message) {
+define(['Ractive', 'rv!/static/templates/view.html', 'src/MessageClass'], function(Ractive, template, Message) {
 	var ViewModule = Ractive.extend({
 		module_id: "ViewModule",
 		el: document.getElementById('page_content'),

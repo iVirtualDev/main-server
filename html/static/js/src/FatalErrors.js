@@ -1,4 +1,4 @@
-define(['BaseModule', 'BaseException', 'notice'], function(BaseModule, BaseException, notice) {
+define(['src/BaseModule', 'src/BaseException', 'notice'], function(BaseModule, BaseException, notice) {
 	var FatalErrors = BaseModule.subclass({
 		module_id: 'FatalErrors',
 		watchFor: [1007, 2000, 11101, 11102, 11103, 11105, 11106, 11107],

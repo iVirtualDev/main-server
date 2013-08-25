@@ -1,4 +1,4 @@
-define(['BaseModule', 'BaseException', 'socket', 'notice', 'url', 'src/MessageClass'],
+define(['src/BaseModule', 'src/BaseException', 'socket', 'notice', 'url', 'src/MessageClass'],
 	function(BaseModule, BaseException, socket, notice, url, Message) {
 		var chat, room, cb;
 

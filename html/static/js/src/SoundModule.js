@@ -1,4 +1,4 @@
-define(['BaseModule', 'BaseException'], function(BaseModule, BaseException){
+define(['src/BaseModule', 'src/BaseException'], function(BaseModule, BaseException){
 	var join, leave, error;
 
 	join = new Audio('/static/audio/join.mp3');

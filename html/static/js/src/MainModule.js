@@ -1,4 +1,4 @@
-define(['BaseModule', 'BaseException', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/SoundModule', 'src/FatalErrors', 'lang', 'async', 'underscore', 'notice'],
+define(['src/BaseModule', 'src/BaseException', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/SoundModule', 'src/FatalErrors', 'lang', 'async', 'underscore', 'notice'],
 	function(BaseModule, BaseException, ChatModule, ViewModule, TelephonyModule, SoundModule, FatalErrors, lang, async, _, notice) {
 		var MainModule = BaseModule.subclass({
 			module_id: 'MainModule',
