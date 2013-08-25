@@ -1,8 +1,8 @@
-define(['src/BaseModule', 'src/BaseException', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/SoundModule', 'src/FatalErrors', 'lang', 'async', 'underscore', 'notice'],
-	function(BaseModule, BaseException, ChatModule, ViewModule, TelephonyModule, SoundModule, FatalErrors, lang, async, _, notice) {
+define(['src/BaseModule', 'src/BaseException', 'src/ChatModule', 'src/ViewModule', 'src/TelephonyModule', 'src/SoundModule', 'async', 'underscore', 'notice'],
+	function(BaseModule, BaseException, ChatModule, ViewModule, TelephonyModule, SoundModule, async, _, notice) {
 		var MainModule = BaseModule.subclass({
 			module_id: 'MainModule',
-			watchFor: [11204],
+			watchFor: [11204, 1007, 2000, 11101, 11102, 11103, 11105, 11106, 11107],
 			timestamp_fmt: "{HH}:{mm}:{ss}",
 			constructor: function() {
 				base = this;
@@ -28,11 +28,6 @@ define(['src/BaseModule', 'src/BaseException', 'src/ChatModule', 'src/ViewModule
 						NProgress.inc();
 
 						base.soundModule = new SoundModule(callback);
-					},
-					function(callback) {
-						NProgress.inc();
-
-						base.fatalErrors = new FatalErrors(callback);
 					},
 					function(callback) {
 						NProgress.inc();
@@ -130,7 +125,11 @@ define(['src/BaseModule', 'src/BaseException', 'src/ChatModule', 'src/ViewModule
 							},
 							timeout: false
 						});
-
+						break;
+					default:
+						//Don't catch Fatal Errors in any case, let it land in this default section!
+						base.soundModule.event("error");
+						base.viewModule.set('fatalError', true).set('fatal_error_message', exception.message);
 						break;
 				}
 			}
