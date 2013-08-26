@@ -106,7 +106,7 @@ define(['src/BaseModule', 'src/BaseException', 'src/ChatModule', 'src/ViewModule
 				}
 
 				async.series(startup_sequence, function(err) {
-					log.debug('Bootstrapping sequence has completed...');
+					mod_root.debug('Bootstrapping sequence has completed...');
 
 					if (err instanceof BaseException) {
 						mod_root.error(err);
