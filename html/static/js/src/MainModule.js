@@ -97,6 +97,8 @@ define(['src/BaseModule', 'src/BaseException', 'src/ChatModule', 'src/ViewModule
 						base.on('leave', function(){
 							base.soundModule.event("leave");
 						});
+
+						callback(null);
 					}
 				];
 
