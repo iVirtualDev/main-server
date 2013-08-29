@@ -91,10 +91,12 @@ define(['src/BaseModule', 'src/BaseException', 'src/ChatModule', 'src/ViewModule
 						NProgress.inc();
 
 						base.on('join', function(){
+							mod_root.debug("'Join' event received!");
 							base.soundModule.event("join");
 						});
 
 						base.on('leave', function(){
+							mod_root.debug("'Leave' event received!");
 							base.soundModule.event("leave");
 						});
 
