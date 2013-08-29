@@ -86,6 +86,17 @@ define(['src/BaseModule', 'src/BaseException', 'src/ChatModule', 'src/ViewModule
 						NProgress.inc();
 
 						base.chatModule = new ChatModule(callback);
+					},
+					function(callback){
+						NProgress.inc();
+
+						base.on('join', function(){
+							base.soundModule.event("join");
+						});
+
+						base.on('leave', function(){
+							base.soundModule.event("leave");
+						});
 					}
 				];
 
